@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
+
+    
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/page-layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2b8896c554.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="row-container">
+        <div class="column-container left-nav">
+            <div class="row-container nav-img">
+                <img src="{% static 'img/FSDI_Final_Logo.svg' %}" alt="apd company logo" class="small-logo">
+                <h3>APD</h3>
+            </div>
+
+            <div class="row-container nav-group">
+                <i class="fa-solid fa-house fa-lg"></i>
+                <h4><a href="{% url 'home' %}">Home</a></h4>
+            </div>
+
+            <div class="row-container nav-group">
+                <i class="fa-solid fa-check fa-lg"></i>
+                <h4><a href="#">My Tasks</a></h4>
+            </div>
+
+            <div class="row-container nav-group">
+                <i class="fa-solid fa-envelope fa-lg"></i>
+                <h4><a href="#">Inbox</a></h4>
+            </div>
+
+            <div class="flex-end">
+                <div class="row-container nav-group flex-end">
+                    <i class="fa-solid fa-door-open fa-lg"></i>
+                    <h4><a href="#">Logout</a></h4>
+                </div>
+
+                <div class="row-container nav-group flex-end">
+                    <i class="fa-solid fa-gear fa-lg"></i>
+                    <h4><a href="#">Settings</a></h4>
+                </div>
+            </div>
+        </div>
+        
+        <div class="column-container column">
+            <div class="row-container top-nav">
+                <div class="photo"><i class="fa-solid fa-user fa-lg"></i></div>
+                <div class="name-group">
+                    <span>Employee</span>
+                    <span>Name</span>
+                </div>
+                
+                <a href="#">Home</a>
+                <a href="#">List</a>
+                <a href="#">Calendar</a>
+                <a href="#">Dashboard</a>
+            </div>
+
+            <div class="column-container contents">
+
+                {% block contents %}
+                {% endblock contents %}
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

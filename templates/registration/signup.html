@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container login-box">
+        <h2>Sign Up</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+            
+            <div class="column-container">
+                <div class="row-container input-group">
+                    <label class="medium-form-label" for="firstname">First Name:</label>
+                    <span id="firstname" name="firstname">{{ form.firstname }}</span>
+                </div>
+    
+                <div class="row-container input-group">
+                    <label class="medium-form-label" for="lastname">Last Name:</label>
+                    <span id="lastname" name="lastname">{{ form.lastname }}</span>
+                </div>
+    
+                <div class="row-container input-group">
+                    <label class="medium-form-label" for="email">Email:</label>
+                    <span id="email" name="email">{{ form.email }}</span>
+                </div>
+                
+                <div class="row-container input-group">
+                    <label class="medium-form-label" for="password1">Password:</label>
+                    <span id="password1" name="password1">{{ form.password1 }}</span>
+                </div>
+    
+                <div class="row-container input-group">
+                    <label class="medium-form-label" for="password2">Retype Password:</label>
+                    <span id="password2" name="password2">{{ form.password2 }}</span>
+                </div>
+    
+                <div class="row-container btn-group">
+                    <button class="btn-primary"><a href="{% url 'login' %}">Login</a></button>
+                    <input type="submit" value="Sign Up" class="btn-primary">
+                </div>
+            </div>
+        </div>
+        </form>
+
+    <img src="{% static 'img/FSDI_Final_Logo.svg' %}" alt="company logo" class="corner-logo">
+</body>
+</html>

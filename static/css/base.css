@@ -1,0 +1,136 @@
+/* Full Website Attributes */
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    padding: 0;
+    margin-right: 0;
+}
+
+body{
+    background-color: #333333;
+    font-family: 'Roboto', sans-serif;
+    color: #FFF;
+}
+
+h1{
+    font-size: 60px;
+    color: white;
+    text-align: center;
+    margin: 50px auto 0px auto;
+}
+
+h2{
+    font-size: 50px;
+    color: white;
+    text-align: center;
+}
+
+h3{
+    font-size: 28px;
+}
+
+h4{
+    font-size: 24px;
+}
+
+h5{
+    font-size: 20px;
+}
+
+.row-container{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.column-container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-content: left;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.btn-primary{
+    width: 140px;
+    height: 70px;
+    background: #666;
+    font-size: 28px;
+    margin: 15px;
+}
+
+.block{
+    display: block;
+    width:fit-content;
+    margin: 0 auto;
+}
+
+a{
+    text-decoration: none;
+    color: #FFF;
+}
+
+.corner-logo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+}
+
+.small-logo{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+
+
+/* Landing Page */
+
+.logo-lg{
+    width: 30%;
+    height: 40%;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Login Pages */
+.login-form{
+    margin: 25px auto;
+
+}
+
+.login-box{
+    width: 70%;
+    background-color: #666;
+    margin: 80px auto;
+    padding: 65px;
+}
+
+.input-group{
+    margin: 8px auto;
+    font-size: 18px;
+    color: black;
+}
+
+.medium-form-label{
+    width: 150px;
+    text-align: left;
+}

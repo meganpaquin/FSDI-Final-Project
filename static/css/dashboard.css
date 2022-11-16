@@ -1,0 +1,96 @@
+.top{
+    flex: 1;
+    height: calc((100vh - 102px) / 2);
+    align-items: stretch;
+    align-content: stretch;
+}
+
+.bottom{
+    flex: 1;
+    height: calc((100vh - 102px) / 2);
+    align-items: stretch;
+}
+
+.top-left, .top-right, .bottom-left, .bottom-right{
+    background-color: #999;
+    width: calc(50% - 20px);
+    height: calc(100% - 20px);
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    scroll-behavior: auto;
+}
+
+.top-left{
+    overflow: auto;
+    scroll-behavior: auto;
+}
+
+.top-left::-webkit-scrollbar{
+    display: None;
+}
+
+.top-right::-webkit-scrollbar{
+    display: None;
+}
+
+.bottom-left::-webkit-scrollbar{
+    display: None;
+}
+
+.top-right::-webkit-scrollbar{
+    display: None;
+}
+
+.progress{
+    width: 80%;
+    margin: 10px auto;
+    color: black !important;
+    font-size: 28px;
+    position: relative;
+}
+
+.title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+
+}
+
+.section-labels{
+    margin: 5px;
+}
+
+.details{
+    width: fit-content;
+    padding: 2px 50px;
+}
+
+.issue-ticket{
+    border: 1px solid black;
+    background-color: #666;
+    margin: 10px 50px;
+    width: auto;
+}
+
+.charts-css{
+    height: 65%;
+    width: 80%;
+    margin: 30px auto;
+}
+
+#piechart{
+    width: 40%;
+}
+
+.pie-totals{
+    width: fit-content;
+    margin-left: 20px;
+}
+
+.pie-totals h3{
+    text-align: center;
+}
