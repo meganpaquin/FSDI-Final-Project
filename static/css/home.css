@@ -1,0 +1,80 @@
+/* Task Section */
+.individual-task{
+    display: flex;
+    flex-direction: row;
+    width: 92%;
+    height: 70px;
+    border: 1px solid black;
+    margin: 5px 2%;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.circle{
+    width: 50px;
+    height: 50px;
+    background-color: #FFF ;
+    border: 1px solid black;
+    border-radius: 50%;
+    margin: auto 10px;
+}
+
+.individual-task h4{
+    width: 300px;
+}
+
+.task-due{
+    text-align: right;
+}
+
+/* project section */
+.project-flexbox{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.square{
+    width: 50px;
+    height: 50px;
+    background-color: purple;
+    border: 2px solid black;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.individual-project{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: fit-content;
+    padding: 10px 20px;
+}
+
+.task-section{
+    flex: 1;
+    background: #CCC;
+    margin: 10px;
+    align-items: center;
+    overflow: auto; 
+    scroll-behavior: auto;
+}
+
+.task-section::-webkit-scrollbar {
+    display: none;
+  }
+
+.project-section{
+    flex: 1;
+    background: #CCC;
+    margin: 10px;
+    margin-top: 0;
+    overflow: auto;
+    scroll-behavior: auto;
+}
