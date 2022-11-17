@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Home
+{% endblock title%}
+
+
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock links %}
+
+
+
+{% block contents %}
+
+<div class="task-section">
+    <div class="section-label">
+        <h5>Tasks Due Soon</h5>
+        <h5>See All Tasks</h5>
+    </div>
+
+    <div class="individual-task">
+        <span class="circle"></span>
+        <h4><strong>Task Name</strong></h4>
+        <h4>Project Name</h4>
+        <h4 class="task-due">Due Date</h4>
+    </div>
+
+
+    <div class="individual-task">
+        <span class="circle"></span>
+        <h4><strong>Task Name</strong></h4>
+        <h4>Project Name</h4>
+        <h4 class="task-due">Due Date</h4>
+    </div>
+
+    <div class="individual-task">
+        <span class="circle"></span>
+        <h4><strong>Task Name</strong></h4>
+        <h4>Project Name</h4>
+        <h4 class="task-due">Due Date</h4>
+    </div>
+
+</div>
+
+<div class="project-section">
+    <div class="section-label">
+        <h5>My Top Projects</h5>
+        <h5>See All Projects</h5>
+    </div>
+
+    <div class="project-flexbox">
+       
+        <div class="individual-project">
+            <span class="square"></span>
+            <div class="details">
+                <h4>Project Name</h4>
+                <h5>Project Role / Subject</h5>
+            </div>
+        </div>
+        <div class="individual-project">
+            <span class="square"></span>
+            <div class="details">
+                <h4>Project Name</h4>
+                <h5>Project Role / Subject</h5>
+            </div>
+        </div>
+        <div class="individual-project">
+            <span class="square"></span>
+            <div class="details">
+                <h4>Project Name</h4>
+                <h5>Project Role / Subject</h5>
+            </div>
+        </div>
+        <div class="individual-project">
+            <span class="square"></span>
+            <div class="details">
+                <h4>Project Name</h4>
+                <h5>Project Role / Subject</h5>
+            </div>
+        </div>
+        <div class="individual-project">
+            <span class="square"></span>
+            <div class="details">
+                <h4>Project Name</h4>
+                <h5>Project Role / Subject</h5>
+            </div>
+        </div>
+        <div class="individual-project">
+            <span class="square"></span>
+            <div class="details">
+                <h4>Project Name</h4>
+                <h5>Project Role / Subject</h5>
+            </div>
+        </div>
+        <div class="individual-project">
+            <span class="square"></span>
+            <div class="details">
+                <h4>Project Name</h4>
+                <h5>Project Role / Subject</h5>
+            </div>
+        </div>
+        <div class="individual-project">
+            <span class="square"></span>
+            <div class="details">
+                <h4>Project Name</h4>
+                <h5>Project Role / Subject</h5>
+            </div>
+        </div>
+        <div class="individual-project">
+            <span class="square"></span>
+            <div class="details">
+                <h4>Project Name</h4>
+                <h5>Project Role / Subject</h5>
+            </div>
+        </div>
+    </div>
+
+{% endblock contents %}
