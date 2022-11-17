@@ -11,10 +11,12 @@
         {% endblock title %}
     </title>
 
+    {% block links %}
+
+    {% endblock links %}
     
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/page-layout.css' %}">
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
@@ -44,10 +46,30 @@
                 <h4><a href="#">Inbox</a></h4>
             </div>
 
+            {% if user.is_staff %}
+                <div class="row-container nav-group">
+                    <i class="fa-solid fa-clipboard-list fa-xl"></i>
+                    <h4><a href="#">Projects</a></h4>
+                </div>
+            {% endif %}
+
+            {% if user.is_superuser %}
+                <div class="row-container nav-group">
+                    <i class="fa-solid fa-lock fa-xl"></i>
+                    <h4><a href="#">Admin</a></h4>
+                </div>
+
+                <div class="row-container nav-group">
+                    <i class="fa-solid fa-key fa-xl"></i>
+                    <h4><a href="#">Permissions</a></h4>
+                </div>
+
+            {% endif %}
+
             <div class="flex-end">
                 <div class="row-container nav-group flex-end">
                     <i class="fa-solid fa-door-open fa-lg"></i>
-                    <h4><a href="#">Logout</a></h4>
+                    <h4><a href="{% url 'logout' %}">Logout</a></h4>
                 </div>
 
                 <div class="row-container nav-group flex-end">
@@ -61,14 +83,14 @@
             <div class="row-container top-nav">
                 <div class="photo"><i class="fa-solid fa-user fa-lg"></i></div>
                 <div class="name-group">
-                    <span>Employee</span>
+                    <span>{ }</span>
                     <span>Name</span>
                 </div>
                 
-                <a href="#">Home</a>
+                <a href="{% url 'home' %}">Home</a>
                 <a href="#">List</a>
                 <a href="#">Calendar</a>
-                <a href="#">Dashboard</a>
+                <a href="{% url 'dashboard' %}">Dashboard</a>
             </div>
 
             <div class="column-container contents">

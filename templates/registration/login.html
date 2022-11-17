@@ -19,13 +19,12 @@
     <div class="container login-box">
         <h2>Login</h2>
 
-        {% csrf_token %}
-
         <form method="post">
+            {% csrf_token %}
             <div class="column-container">
                 <div class="row-container input-group">
                     <label class="medium-form-label" for="email">Email:</label>
-                    <span id="email" name="email">{{ form.email }}</span>
+                    <span id="email" name="email">{{ form.username }}</span>
                 </div>
                 
                 <div class="row-container input-group">
