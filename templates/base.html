@@ -56,7 +56,7 @@
             {% if user.is_superuser %}
                 <div class="row-container nav-group">
                     <i class="fa-solid fa-lock fa-xl"></i>
-                    <h4><a href="#">Admin</a></h4>
+                    <h4><a href="{% url 'admin:index' %}">Admin</a></h4>
                 </div>
 
                 <div class="row-container nav-group">
@@ -83,8 +83,10 @@
             <div class="row-container top-nav">
                 <div class="photo"><i class="fa-solid fa-user fa-lg"></i></div>
                 <div class="name-group">
-                    <span>{ }</span>
-                    <span>Name</span>
+                    {% if user.is_authenticated %}
+                        <span>{{ user.first_name }}</span>
+                        <span>{{ user.last_name }}</span>
+                    {% endif %}
                 </div>
                 
                 <a href="{% url 'home' %}">Home</a>

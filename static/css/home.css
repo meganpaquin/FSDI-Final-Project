@@ -78,3 +78,40 @@
     overflow: auto;
     scroll-behavior: auto;
 }
+
+.project-section::-webkit-scrollbar {
+    display: none;
+  }
+
+/* Team Member Section */
+.team-member{
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    height: 70px;
+    margin: 5px 0;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.team-section{
+    flex: 1;
+    background: #CCC;
+    margin: 10px;
+    align-items: center;
+    overflow: auto; 
+    scroll-behavior: auto;
+}
+
+.team-flexbox{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    margin: 0px 2%;
+}
+
+.team-section::-webkit-scrollbar {
+    display: none;
+  }
