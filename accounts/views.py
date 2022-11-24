@@ -8,6 +8,12 @@ from .forms import SignUpForm
 from django.contrib.auth import login
 from django.contrib import messages
 
+
+from django.contrib.auth.forms import PasswordResetForm
+
+from django.views.generic.edit import FormView
+from django.urls import reverse_lazy 
+
 class UserChangeView(UpdateView):
     template_name = 'registration/change_user.html'
     form_class = UserChangeForm
@@ -24,3 +30,9 @@ def register_request(request):
 		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = SignUpForm()
 	return render (request=request, template_name="registration/signup.html", context={"signup":form})
+
+
+class PasswordChangeView(FormView):
+    form_class = PasswordResetForm
+    success_url = reverse_lazy('password_change_done')
+    template_name = 'registration/password_change_form.html'
