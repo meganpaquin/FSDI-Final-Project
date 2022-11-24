@@ -1,9 +1,170 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
     List
 {% endblock title%}
 
-{% block contents %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/list.css' %}" />
+{% endblock links %}
 
+
+
+{% block contents %}
+<div class="row-container">
+    <div class="overdue-section">
+        <div class="task-overdue">
+            <span class="circle"></span> 
+            <div class="row-container">
+                <p class="title">Task Name</p>
+                <p class="priority">Priority</p>
+                <p class="due">Due Date</p>
+            </div>
+        </div>
+
+        <div class="task-overdue">
+            <span class="circle"></span> 
+            <div class="row-container">
+                <p class="title">Task Name</p>
+                <p class="priority">Priority</p>
+                <p class="due">Due Date</p>
+            </div>
+        </div>
+
+        <div class="task-overdue">
+            <span class="circle"></span> 
+            <div class="row-container">
+                <p class="title">Task Name</p>
+                <p class="priority">Priority</p>
+                <p class="due">Due Date</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="todo-section">
+        <div class="task-due">
+            <span class="circle"></span> 
+            <div class="row-container">
+                <p class="title">Task Name</p>
+                <p class="priority">Priority</p>
+                <p class="due">Due Date</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="working-section ">
+        <div class="task-due">
+            <span class="circle"></span> 
+            <div class="row-container">
+                <p class="title">Task Name</p>
+                <p class="priority">Priority</p>
+                <p class="due">Due Date</p>
+            </div>
+        </div>
+
+        <div class="task-due">
+            <span class="circle"></span> 
+            <div class="row-container">
+                <p class="title">Task Name</p>
+                <p class="priority">Priority</p>
+                <p class="due">Due Date</p>
+            </div>
+        </div>
+
+        <div class="task-due">
+            <span class="circle"></span> 
+            <div class="row-container">
+                <p class="title">Task Name</p>
+                <p class="priority">Priority</p>
+                <p class="due">Due Date</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="complete-section">
+        <div class="task-complete">
+            <i class="fa-regular fa-circle-check fa-2xl"></i>
+            <div class="row-container">
+                <p class="title">Task Name</p>
+                <p class="priority">Priority</p>
+                <p class="due">Due Date</p>
+            </div>
+        </div>
+
+        <div class="task-complete">
+            <i class="fa-regular fa-circle-check fa-2xl"></i>
+            <div class="row-container">
+                <p class="title">Task Name</p>
+                <p class="priority">Priority</p>
+                <p class="due">Due Date</p>
+            </div>
+        </div>
+
+        <div class="task-complete">
+            <i class="fa-regular fa-circle-check fa-2xl"></i>
+            <div class="row-container">
+                <p class="title">Task Name</p>
+                <p class="priority">Priority</p>
+                <p class="due">Due Date</p>
+            </div>
+        </div>
+
+        <div class="task-complete">
+            <i class="fa-regular fa-circle-check fa-2xl"></i>
+            <div class="row-container">
+                <p class="title">Task Name</p>
+                <p class="priority">Priority</p>
+                <p class="due">Due Date</p>
+            </div>
+        </div>
+
+        <div class="task-complete">
+            <i class="fa-regular fa-circle-check fa-2xl"></i>
+            <div class="row-container">
+                <p class="title">Task Name</p>
+                <p class="priority">Priority</p>
+                <p class="due">Due Date</p>
+            </div>
+        </div>
+
+        <div class="task-complete">
+            <i class="fa-regular fa-circle-check fa-2xl"></i>
+            <div class="row-container">
+                <p class="title">Task Name</p>
+                <p class="priority">Priority</p>
+                <p class="due">Due Date</p>
+            </div>
+        </div>
+
+        <div class="task-complete">
+            <i class="fa-regular fa-circle-check fa-2xl"></i>
+            <div class="row-container">
+                <p class="title">Task Name</p>
+                <p class="priority">Priority</p>
+                <p class="due">Due Date</p>
+            </div>
+        </div>
+
+        <div class="task-complete">
+            <i class="fa-regular fa-circle-check fa-2xl"></i>
+            <div class="row-container">
+                <p class="title">Task Name</p>
+                <p class="priority">Priority</p>
+                <p class="due">Due Date</p>
+            </div>
+        </div>
+
+        <div class="task-complete">
+            <i class="fa-regular fa-circle-check fa-2xl"></i>
+            <div class="row-container">
+                <p class="title">Task Name</p>
+                <p class="priority">Priority</p>
+                <p class="due">Due Date</p>
+            </div>
+        </div>
+
+        
+    </div>
+</div>
 {% endblock contents %}

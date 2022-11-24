@@ -38,7 +38,7 @@
 
             <div class="row-container nav-group">
                 <i class="fa-solid fa-check fa-lg"></i>
-                <h4><a href="#">My Tasks</a></h4>
+                <h4><a href="{% url 'list' %}">My Tasks</a></h4>
             </div>
 
             <div class="row-container nav-group">
@@ -90,7 +90,7 @@
                 </div>
                 
                 <a href="{% url 'home' %}">Home</a>
-                <a href="#">List</a>
+                <a href="{% url 'list' %}">List</a>
                 <a href="#">Calendar</a>
                 <a href="{% url 'dashboard' %}">Dashboard</a>
             </div>
