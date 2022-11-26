@@ -50,104 +50,59 @@
         <div class="task-section">
             <div class="section-label">
                 <h5>Tasks Due Soon</h5>
-                <h5>See All Tasks</h5>
-            </div>
-
-            <div class="individual-task">
-                <span class="circle"></span>
-                <h4><strong>Task Name</strong></h4>
-                <h4>Project Name</h4>
-                <h4 class="task-due">Due Date</h4>
+                <a href=""><h5>New Task</h5></a>
+                <a href="{% url 'list' %}"><h5>See All Tasks</h5></a>
             </div>
 
 
-            <div class="individual-task">
-                <span class="circle"></span>
-                <h4><strong>Task Name</strong></h4>
-                <h4>Project Name</h4>
-                <h4 class="task-due">Due Date</h4>
-            </div>
+            {% for task in assigned_tasks %}
+                {% if user == task.assignee %}
+                <div class="individual-task">
+                    <span class="circle"></span>
+                    <h4><strong>{{ task.task_name }}</strong></h4>
+                    <h4>Project: {{ task.project }}</h4>
+                    <h4 class="task-due">{{ task.deadline}}</h4>
+                </div>
+                {% endif %}
+            {% endfor %}
 
-            <div class="individual-task">
-                <span class="circle"></span>
-                <h4><strong>Task Name</strong></h4>
-                <h4>Project Name</h4>
-                <h4 class="task-due">Due Date</h4>
-            </div>
+            {% for task in progress_tasks %}
+                {% if user == task.assignee %}
+                <div class="individual-task">
+                    <span class="circle"></span>
+                    <h4><strong>{{ task.task_name }}</strong></h4>
+                    <h4>Project: {{ task.project }}</h4>
+                    <h4 class="task-due">{{ task.deadline}}</h4>
+                </div>
+                {% endif %}
+            {% endfor %}
 
         </div>
 
         <div class="project-section">
             <div class="section-label">
                 <h5>My Top Projects</h5>
-                <h5>See All Projects</h5>
+
+                {% if user.is_staff %}
+                <a href=""><h5>New Project</h5></a>
+                {% endif %}
+
+                <a href=""><h5>See All Projects</h5></a>
+                
             </div>
 
             <div class="project-flexbox">
-            
+                
+
+                {% for project in projects %}
                 <div class="individual-project">
                     <span class="square"></span>
                     <div class="details">
-                        <h4>Project Name</h4>
-                        <h5>Project Role / Subject</h5>
+                        <h4>{{ project.title }}</h4>
+                        <h5>{{ project.author }} / {{ project.status }}</h5>
                     </div>
                 </div>
-                <div class="individual-project">
-                    <span class="square"></span>
-                    <div class="details">
-                        <h4>Project Name</h4>
-                        <h5>Project Role / Subject</h5>
-                    </div>
-                </div>
-                <div class="individual-project">
-                    <span class="square"></span>
-                    <div class="details">
-                        <h4>Project Name</h4>
-                        <h5>Project Role / Subject</h5>
-                    </div>
-                </div>
-                <div class="individual-project">
-                    <span class="square"></span>
-                    <div class="details">
-                        <h4>Project Name</h4>
-                        <h5>Project Role / Subject</h5>
-                    </div>
-                </div>
-                <div class="individual-project">
-                    <span class="square"></span>
-                    <div class="details">
-                        <h4>Project Name</h4>
-                        <h5>Project Role / Subject</h5>
-                    </div>
-                </div>
-                <div class="individual-project">
-                    <span class="square"></span>
-                    <div class="details">
-                        <h4>Project Name</h4>
-                        <h5>Project Role / Subject</h5>
-                    </div>
-                </div>
-                <div class="individual-project">
-                    <span class="square"></span>
-                    <div class="details">
-                        <h4>Project Name</h4>
-                        <h5>Project Role / Subject</h5>
-                    </div>
-                </div>
-                <div class="individual-project">
-                    <span class="square"></span>
-                    <div class="details">
-                        <h4>Project Name</h4>
-                        <h5>Project Role / Subject</h5>
-                    </div>
-                </div>
-                <div class="individual-project">
-                    <span class="square"></span>
-                    <div class="details">
-                        <h4>Project Name</h4>
-                        <h5>Project Role / Subject</h5>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     {% endif %}

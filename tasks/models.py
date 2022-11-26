@@ -4,6 +4,14 @@ from django.urls import reverse
 from django.contrib.auth import get_user_model
 from projects.models import Project
 
+
+class Priority(models.Model):
+    name = models.CharField(max_length=128)
+    description = models.CharField(max_length=128)
+
+    def __str__(self):
+        return self.name
+
 class Status(models.Model):
     name = models.CharField(max_length=128)
     description = models.CharField(max_length=128)
@@ -11,7 +19,6 @@ class Status(models.Model):
     def __str__(self):
         return self.name
 
-        
 class Task(models.Model):
     task_name = models.CharField(max_length=120)
     task_summary = models.TextField()
@@ -39,6 +46,12 @@ class Task(models.Model):
         on_delete=models.CASCADE,
         blank=True,
         null=True
+    )
+    priority = models.ForeignKey(
+        Priority,
+        on_delete=models.CASCADE,
+        blank = True,
+        null = True
     )
 
     # need to add risks / issues
