@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth import get_user_model
 from .models import Project
+from .forms import TaskForm
 
 class ProjectListView(LoginRequiredMixin, ListView):
     template_name = "projects/projects.html"
@@ -16,7 +17,7 @@ class ProjectDetailView(DetailView):
 class ProjectCreateView(LoginRequiredMixin, CreateView):
     template_name = "projects/project-new.html"
     model = Project
-    fields = []
+    form_class = TaskForm
 
     def form_valid(self,form):
         form.instance.author = self.request.user

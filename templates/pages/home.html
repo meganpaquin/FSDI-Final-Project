@@ -84,7 +84,7 @@
                 <h5>My Top Projects</h5>
 
                 {% if user.is_staff %}
-                <a href=""><h5>New Project</h5></a>
+                <a href="{% url 'project-new' %}"><h5>New Project</h5></a>
                 {% endif %}
 
                 <a href=""><h5>See All Projects</h5></a>
