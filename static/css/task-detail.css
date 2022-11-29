@@ -1,0 +1,169 @@
+.bottom-section{
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid black;
+    padding: 20px 10px;
+}
+
+.left-section{
+    flex: 3;
+    border-right: 1px solid black;
+    width: 80%;
+    margin-right: 25px;
+    padding: 20px;
+}
+
+.right-section{
+    flex: 1;
+    height: calc(100vh - 225px);
+}
+
+.top-section{
+    display: flex;
+    flex-direction: row;
+}
+
+.everything{
+    display: flex;
+    flex-direction: column;
+    background-color: #999;
+    margin: 10px;
+    height: calc(100% - 20px);
+}
+
+.top-section > * {
+    width: 100%;
+    margin: 20px 5px;
+}
+
+.task-name{
+    padding-left: 5px;
+}
+
+.deadline{
+    text-align: right;
+}
+
+.project{
+    text-align: center;
+}
+
+.summary{
+    height: calc((100% / 6)*2);
+    overflow: scroll;
+    scroll-behavior: auto;
+}
+
+.summary::-webkit-scrollbar{
+    display: None;
+}
+
+.details{
+    flex: 2;
+    height: calc((100% / 6) * 3);
+    overflow: scroll;
+    scroll-behavior: auto;
+}
+
+.details::-webkit-scrollbar{
+    display: None;
+}
+
+p{
+    font-size: 20px;
+    padding: 10px 50px;
+}
+.status{
+    flex: 1;
+    height: calc(100% / 6)
+}
+
+button{
+    width: 150px;
+    height: 75px;
+    margin-top: 10px;
+    font-size: 26px;
+    text-transform: capitalize;
+    color: white;
+    background-color: #7D94B5;
+}
+
+.submit{
+    width: 150px;
+    height: 75px;
+    margin-top: 10px;
+    font-size: 26px;
+    text-transform: capitalize;
+    color: white;
+    background-color: #7D94B5;
+}
+
+.risks{
+    height: 78%;
+    overflow: scroll;
+    scroll-behavior: auto;
+}
+
+.risks::-webkit-scrollbar{
+    display: None;
+}
+
+.comment{
+    height: 5%;
+    background-color: #666;
+    border: 1px solid black;
+    border-radius: 20px;
+    color: white;
+    padding-top: 15px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+.user-bubble{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: none;
+    background: #666;
+    padding: 5px;
+    border-radius: 20px;
+    border: 1px solid black;
+    margin: 5px 0;
+}
+
+.comment-bubble{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: none;
+    background: #666;
+    padding: 5px;
+    border-radius: 20px;
+    border: 1px solid black;
+    margin: 5px 0;
+}
+
+.comment-bubble span{
+    margin-left: 10px;
+    width: 80%;
+    color: white;
+}
+
+.circle{
+    margin: 5px;
+    width: 35px;
+    height: 28px;
+    border: 1px solid black;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 7px;
+    justify-content: center;
+    background: blue;
+    color: #FFF;
+}
+
+.user-bubble span{
+    font-size: 30px;
+    text-transform: capitalize;
+    margin-left: 10px;
+    margin-top: 5px;
+    color: #333;
+}
