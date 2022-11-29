@@ -20,7 +20,7 @@
 }
 
 .individual-task h4{
-    width: 300px;
+    width: calc(100% / 3);
 }
 
 .task-due{
