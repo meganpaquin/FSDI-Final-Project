@@ -169,3 +169,11 @@ button{
 }
 
 
+
+.user-bubble span{
+    font-size: 30px;
+    text-transform: capitalize;
+    margin-left: 10px;
+    margin-top: 5px;
+    color: #333;
+}
