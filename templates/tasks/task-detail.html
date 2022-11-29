@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Task Details
+{% endblock title%}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/task-detail.css' %}" />
+{% endblock links %}
+
+{% block contents %}
+<div class="everything">
+    <div class="top-section">
+        <div class="task-name">
+            <h3>{{ task.task_name }}</h3>
+        </div>
+        <div class="project">
+            <h3>PROJECT: {{ task.project }}</h3>
+        </div>
+        <div class="deadline">
+            <h3>{{ task.deadline }}</h3>
+        </div>
+    </div>
+
+    <div class="bottom-section">
+        <div class="left-section">
+            <div class="summary">
+                <h4>TASK SUMMARY</h4>
+                <p>{{ task.task_summary }}</p>
+            </div>
+
+            <div class="details">
+                <h4>TASK DETAILS</h4>
+                <p>{{ task.task_details}}</p>
+            </div>
+
+            <div class="status">
+                <h4>STATUS</h4>
+                <button>{{ task.status }}</button>
+            </div>   
+        </div>
+        <div class="right-section">
+            <div class="risks">
+                <h4>RISKS / ISSUES</h4>
+                <div class="comment-bubble">
+                    <div class="circle">JB</div>
+                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis dicta minus corporis animi fuga, natus mollitia explicabo beatae quis voluptas!</span>
+                </div>
+            </div>
+
+            <div class="comment">
+                <span>Type Your Comment...</span>
+            </div>
+            
+            <div class="assignee">
+                <h4>ASSIGNEE</h4>
+                <div class="user-bubble">
+                    <div class="circle">JB</div>
+                    <span>{{ task.assignee }}</span>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+{% endblock contents %}

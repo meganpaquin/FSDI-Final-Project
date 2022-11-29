@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    New Task
+{% endblock title%}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/task-detail.css' %}" />
+{% endblock links %}
+
+{% block contents %}
+<form method="POST">
+    {% csrf_token %}
+    
+    <div class="everything">
+        <div class="top-section">
+            <div class="task-name">
+                <h3>Task Name: {{ form.task_name }}</h3>
+            </div>
+            <div class="deadline">
+                <h3>DEADLINE: {{ form.deadline }}</h3>
+            </div>
+        </div>
+    
+        <div class="bottom-section">
+            <div class="left-section">
+                <div class="summary">
+                    <h4>TASK SUMMARY</h4>
+                    <p>{{ form.task_summary }}</p>
+                </div>
+    
+                <div class="details">
+                    <h4>TASK DETAILS</h4>
+                    <p>{{ form.task_details}}</p>
+                </div>
+    
+                <div class="status">
+                    <h4>STATUS</h4>
+                    <p>{{ form.status }}</p>
+                </div>   
+            </div>
+            <div class="right-section">
+                <h4>ASSIGNEE</h4>
+                <p>{{ form.assignee }}</p>
+                <h4>PROJECT</h4>
+                <p>{{ form.project }}</p>
+                <h4>PRIORITY</h4>
+                <p>{{ form.priority }}</p>
+                
+                <input type="submit" value="SUBMIT" class="submit">
+            </div>
+        </div>
+    </div>
+
+    
+</form>
+
+
+{% endblock contents %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Project Details
+{% endblock title%}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/project-detail.css' %}" />
+{% endblock links %}
+
+{% block contents %}
+    <h4>{{ project.deadline }}</h4>
+{% endblock contents %}

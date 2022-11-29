@@ -1,6 +1,8 @@
 from django.views.generic import TemplateView
 from tasks.models import Task, Status
 from projects.models import Project
+from datetime import datetime
+from django.db.models import Q
 
 class IndexPageView(TemplateView):
     template_name = "pages/index.html"
@@ -13,7 +15,7 @@ class HomePageView(TemplateView):
 
         assigned = Status.objects.get(name="assigned")
 
-        context['assigned_tasks'] = Task.objects.filter(status=assigned).order_by('deadline').reverse()[0:3]
+        context['assigned_tasks'] = Task.objects.filter(status=assigned).order_by('deadline').reverse().order_by('priority')[0:3]
 
         progress = Status.objects.get(name="in-progress")
 
@@ -38,20 +40,20 @@ class ListPageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['open_tasks'] = Task.objects.filter(status="assigned").filter(status="in-progress").order_by('created_on').reverse()
+
+        assigned = Status.objects.get(name="assigned")
+        context['assigned_tasks'] = Task.objects.filter(status=assigned).order_by('deadline').reverse().filter(deadline__gt=datetime.today()).filter
+
+        progress = Status.objects.get(name="in-progress")
+        context['progress_tasks'] = Task.objects.filter(status=progress).order_by('deadline').reverse()
+
+        complete = Status.objects.get(name="complete")
+        context['complete_tasks'] = Task.objects.filter(status=complete).order_by('deadline').reverse()
+
+        context['overdue_tasks'] = Task.objects.filter(deadline__lt=datetime.today()).filter(~Q(status=complete))
+
         return context
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['complete_tasks'] = Task.objects.filter(status="complete").order_by('created_on').reverse()
-        return context
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['archived_tasks'] = Task.objects.filter(status="archived").order_by('created_on').reverse()
-        return context
-
-    
 
 class CalendarPageView(TemplateView):
     template_name = "pages/calendar.html"

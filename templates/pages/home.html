@@ -50,7 +50,7 @@
         <div class="task-section">
             <div class="section-label">
                 <h5>Tasks Due Soon</h5>
-                <a href=""><h5>New Task</h5></a>
+                <a href="{% url 'task-new' %}"><h5>New Task</h5></a>
                 <a href="{% url 'list' %}"><h5>See All Tasks</h5></a>
             </div>
 
@@ -59,7 +59,7 @@
                 {% if user == task.assignee %}
                 <div class="individual-task">
                     <span class="circle"></span>
-                    <h4><strong>{{ task.task_name }}</strong></h4>
+                    <h4><strong><a href="{% url 'task-detail' task.id %}">{{ task.task_name }}</a></strong></h4>
                     <h4>Project: {{ task.project }}</h4>
                     <h4 class="task-due">{{ task.deadline}}</h4>
                 </div>
@@ -70,7 +70,7 @@
                 {% if user == task.assignee %}
                 <div class="individual-task">
                     <span class="circle"></span>
-                    <h4><strong>{{ task.task_name }}</strong></h4>
+                    <h4><strong><a href="{% url 'task-detail' task.id%}">{{ task.task_name }}</a></strong></h4>
                     <h4>Project: {{ task.project }}</h4>
                     <h4 class="task-due">{{ task.deadline}}</h4>
                 </div>
@@ -95,13 +95,23 @@
                 
 
                 {% for project in projects %}
-                <div class="individual-project">
-                    <span class="square"></span>
-                    <div class="details">
-                        <h4>{{ project.title }}</h4>
-                        <h5>{{ project.author }} / {{ project.status }}</h5>
+                    {% if user == project.assignee %}
+                    <div class="individual-project">
+                        <span class="square"></span>
+                        <div class="details">
+                            <h4><a href="{% url 'project-detail' project.id%}">{{ project.title }}</a></h4>
+                            <h5>{{ project.author }} / {{ project.status }}</h5>
+                        </div>
                     </div>
-                </div>
+                    {% elif user == project.author %}
+                    <div class="individual-project">
+                        <span class="square"></span>
+                        <div class="details">
+                            <h4><a href="{% url 'project-detail' project.id%}">{{ project.title }}</a></h4>
+                            <h5>{{ project.author }} / {{ project.status }}</h5>
+                        </div>
+                    </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
