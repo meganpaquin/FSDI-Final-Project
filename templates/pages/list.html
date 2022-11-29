@@ -14,157 +14,77 @@
 {% block contents %}
 <div class="row-container">
     <div class="overdue-section">
-        <div class="task-overdue">
-            <span class="circle"></span> 
-            <div class="row-container">
-                <p class="title">Task Name</p>
-                <p class="priority">Priority</p>
-                <p class="due">Due Date</p>
-            </div>
-        </div>
-
-        <div class="task-overdue">
-            <span class="circle"></span> 
-            <div class="row-container">
-                <p class="title">Task Name</p>
-                <p class="priority">Priority</p>
-                <p class="due">Due Date</p>
-            </div>
-        </div>
-
-        <div class="task-overdue">
-            <span class="circle"></span> 
-            <div class="row-container">
-                <p class="title">Task Name</p>
-                <p class="priority">Priority</p>
-                <p class="due">Due Date</p>
-            </div>
-        </div>
+        <h3>Overdue</h3>
+        {% for task in overdue_tasks %}
+            {% if user == task.assignee %}
+            <a href="{% url 'task-detail' task.id %}">
+                <div class="task-overdue">
+                    <span class="circle"></span> 
+                    <div class="row-container">
+                        <p class="title">{{ task.task_name }}</p>
+                        <p class="priority">Priority: {{ task.priority }}</p>
+                        <p class="due">{{ task.deadline }}</p>
+                    </div>
+                </div>
+            </a>
+            {% endif %}
+        {% endfor %}
     </div>
 
     <div class="todo-section">
-        <div class="task-due">
-            <span class="circle"></span> 
-            <div class="row-container">
-                <p class="title">Task Name</p>
-                <p class="priority">Priority</p>
-                <p class="due">Due Date</p>
-            </div>
-        </div>
+        <h3>To Do</h3>
+        {% for task in assigned_tasks %}
+            {% if user == task.assignee %}
+            <a href="{% url 'task-detail' task.id %}">
+                <div class="task-due">
+                    <span class="circle"></span> 
+                    <div class="row-container">
+                        <p class="title">{{ task.task_name }}</p>
+                        <p class="priority">Priority: {{ task.priority }}</p>
+                        <p class="due">{{ task.deadline }}</p>
+                    </div>
+                </div>
+            </a>
+            {% endif %}
+        {% endfor %}
     </div>
 
     <div class="working-section ">
-        <div class="task-due">
-            <span class="circle"></span> 
-            <div class="row-container">
-                <p class="title">Task Name</p>
-                <p class="priority">Priority</p>
-                <p class="due">Due Date</p>
-            </div>
-        </div>
-
-        <div class="task-due">
-            <span class="circle"></span> 
-            <div class="row-container">
-                <p class="title">Task Name</p>
-                <p class="priority">Priority</p>
-                <p class="due">Due Date</p>
-            </div>
-        </div>
-
-        <div class="task-due">
-            <span class="circle"></span> 
-            <div class="row-container">
-                <p class="title">Task Name</p>
-                <p class="priority">Priority</p>
-                <p class="due">Due Date</p>
-            </div>
-        </div>
+        <h3>Working</h3>
+        {% for task in progress_tasks %}
+            {% if user == task.assignee %}
+            <a href="{% url 'task-detail' task.id %}">
+                <div class="task-due">
+                    <span class="circle"></span> 
+                    <div class="row-container">
+                        <p class="title">{{ task.task_name }}</p>
+                        <p class="priority">Priority: {{ task.priority }}</p>
+                        <p class="due">{{ task.deadline }}</p>
+                    </div>
+                </div>
+            </a>
+            
+            {% endif %}
+        {% endfor %}
     </div>
 
     <div class="complete-section">
-        <div class="task-complete">
-            <i class="fa-regular fa-circle-check fa-2xl"></i>
-            <div class="row-container">
-                <p class="title">Task Name</p>
-                <p class="priority">Priority</p>
-                <p class="due">Due Date</p>
-            </div>
-        </div>
-
-        <div class="task-complete">
-            <i class="fa-regular fa-circle-check fa-2xl"></i>
-            <div class="row-container">
-                <p class="title">Task Name</p>
-                <p class="priority">Priority</p>
-                <p class="due">Due Date</p>
-            </div>
-        </div>
-
-        <div class="task-complete">
-            <i class="fa-regular fa-circle-check fa-2xl"></i>
-            <div class="row-container">
-                <p class="title">Task Name</p>
-                <p class="priority">Priority</p>
-                <p class="due">Due Date</p>
-            </div>
-        </div>
-
-        <div class="task-complete">
-            <i class="fa-regular fa-circle-check fa-2xl"></i>
-            <div class="row-container">
-                <p class="title">Task Name</p>
-                <p class="priority">Priority</p>
-                <p class="due">Due Date</p>
-            </div>
-        </div>
-
-        <div class="task-complete">
-            <i class="fa-regular fa-circle-check fa-2xl"></i>
-            <div class="row-container">
-                <p class="title">Task Name</p>
-                <p class="priority">Priority</p>
-                <p class="due">Due Date</p>
-            </div>
-        </div>
-
-        <div class="task-complete">
-            <i class="fa-regular fa-circle-check fa-2xl"></i>
-            <div class="row-container">
-                <p class="title">Task Name</p>
-                <p class="priority">Priority</p>
-                <p class="due">Due Date</p>
-            </div>
-        </div>
-
-        <div class="task-complete">
-            <i class="fa-regular fa-circle-check fa-2xl"></i>
-            <div class="row-container">
-                <p class="title">Task Name</p>
-                <p class="priority">Priority</p>
-                <p class="due">Due Date</p>
-            </div>
-        </div>
-
-        <div class="task-complete">
-            <i class="fa-regular fa-circle-check fa-2xl"></i>
-            <div class="row-container">
-                <p class="title">Task Name</p>
-                <p class="priority">Priority</p>
-                <p class="due">Due Date</p>
-            </div>
-        </div>
-
-        <div class="task-complete">
-            <i class="fa-regular fa-circle-check fa-2xl"></i>
-            <div class="row-container">
-                <p class="title">Task Name</p>
-                <p class="priority">Priority</p>
-                <p class="due">Due Date</p>
-            </div>
-        </div>
-
-        
+        <h3>Complete</h3>
+        {% for task in complete_tasks %}
+            {% if user == task.assignee %}
+            <a href="{% url 'task-detail' task.id %}">
+                <div class="task-complete">
+                    <i class="fa-regular fa-circle-check fa-2xl"></i>
+                    <div class="row-container">
+                        <p class="title">{{ task.task_name }}</p>
+                        <p class="priority">Priority: {{ task.priority }}</p>
+                        <p class="due">{{ task.deadline }}</p>
+                    </div>
+                </div>
+            </a>
+            
+            {% endif %}
+        {% endfor %}        
     </div>
 </div>
 {% endblock contents %}
