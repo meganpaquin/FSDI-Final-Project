@@ -82,12 +82,19 @@
         <div class="column-container column">
             <div class="row-container top-nav">
                 <div class="name-group">
+                    <img src="{{ user.image.url }}" alt="user image" class="circle">
                     {% if user.is_authenticated %}
-                        <span>{{ user.first_name }}</span>
-                        <span>{{ user.last_name }}</span>
+                        {% if user.first_name == '' %}
+                            <span>Hello,</span>
+                            <span>User!</span>
+                        {% else %}
+                            <span>{{ user.first_name }}</span>
+                            <span>{{ user.last_name }}</span>
+                        {% endif %}
                     {% endif %}
                 </div>
-                <!-- <img src="{% static 'img/FSDI_Final_Logo.svg' %}" alt=""> -->
+
+   
                 <a href="{% url 'home' %}">Home</a>
                 <a href="{% url 'list' %}">List</a>
                 <a href="{% url 'calendar' %}">Calendar</a>

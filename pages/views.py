@@ -3,6 +3,8 @@ from tasks.models import Task, Status
 from projects.models import Project
 from datetime import datetime
 from django.db.models import Q
+from accounts.models import CustomUser
+from django.shortcuts import render
 
 class IndexPageView(TemplateView):
     template_name = "pages/index.html"
@@ -14,17 +16,16 @@ class HomePageView(TemplateView):
         context = super().get_context_data(**kwargs)
 
         assigned = Status.objects.get(name="assigned")
-
         context['assigned_tasks'] = Task.objects.filter(status=assigned).order_by('deadline').reverse().order_by('priority')[0:3]
 
         progress = Status.objects.get(name="in-progress")
-
         context['progress_tasks'] = Task.objects.filter(status=progress).order_by('deadline').reverse()[0:3]
 
         context['projects'] = Project.objects.order_by('deadline')
+
+        context['images'] = CustomUser.objects.all()
         
         return context
-
         
 class DashboardPageView(TemplateView):
     template_name = "pages/dashboard.html"
