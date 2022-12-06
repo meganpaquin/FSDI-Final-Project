@@ -1,10 +1,14 @@
 from django.urls import path
-from .views import UserChangeView, PasswordChangeView
+from .views import SignUpView, UserChangeView
 from . import views 
+from django.conf import settings 
+from django.conf.urls.static import static
+
 
 urlpatterns = [
-    path('signup/', views.register_request, name='signup'),
+    path('signup/', SignUpView.as_view(), name='signup'),
     path('users/<int:pk>/edit', UserChangeView.as_view(), name="change_user"),
-    path('password_change/', PasswordChangeView.as_view(), name='password_change')
-
     ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
