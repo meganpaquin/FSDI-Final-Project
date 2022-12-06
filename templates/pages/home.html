@@ -100,7 +100,7 @@
                         <span class="square"></span>
                         <div class="details">
                             <h4><a href="{% url 'project-detail' project.id%}">{{ project.title }}</a></h4>
-                            <h5>{{ project.author }} / {{ project.status }}</h5>
+                            <h5>{{ project.author.first_name }} / {{ project.status }}</h5>
                         </div>
                     </div>
                     {% elif user == project.author %}

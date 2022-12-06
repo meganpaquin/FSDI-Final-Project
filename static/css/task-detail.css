@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: row;
     border-top: 1px solid black;
-    padding: 20px 10px;
+    padding: 0 10px;
+    margin-bottom: 0;
 }
 
 .left-section{
@@ -11,6 +12,7 @@
     width: 80%;
     margin-right: 25px;
     padding: 20px;
+    padding-bottom: 0;
 }
 
 .right-section{
@@ -49,7 +51,7 @@
 }
 
 .summary{
-    height: calc((100% / 6)*2);
+    height: 180px;
     overflow: scroll;
     scroll-behavior: auto;
 }
@@ -60,9 +62,10 @@
 
 .details{
     flex: 2;
-    height: calc((100% / 6) * 3);
+    height: 180px;
     overflow: scroll;
     scroll-behavior: auto;
+    padding-top: 15px;
 }
 
 .details::-webkit-scrollbar{
@@ -71,17 +74,18 @@
 
 p{
     font-size: 20px;
-    padding: 10px 50px;
+    padding: 30px 50px;
 }
 .status{
     flex: 1;
-    height: calc(100% / 6)
+    height: calc(100% / 6);
+    padding-top: 15px;
 }
 
 button{
     width: 150px;
     height: 75px;
-    margin-top: 10px;
+    margin-top: 30px;
     font-size: 26px;
     text-transform: capitalize;
     color: white;
@@ -99,7 +103,7 @@ button{
 }
 
 .risks{
-    height: 78%;
+    height: 74%;
     overflow: scroll;
     scroll-behavior: auto;
 }
@@ -138,7 +142,7 @@ button{
     padding: 5px;
     border-radius: 20px;
     border: 1px solid black;
-    margin: 5px 0;
+    margin: 30px 0;
 }
 
 .comment-bubble span{
@@ -166,4 +170,13 @@ button{
     margin-left: 10px;
     margin-top: 5px;
     color: #333;
+}
+
+.everything h4{
+    position: fixed;
+    background-color: #999;
+}
+
+.assignee h4{
+    position: inherit;
 }

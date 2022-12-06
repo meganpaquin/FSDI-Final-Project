@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    Task Details
+    Project Details
 {% endblock title%}
 
 {% block links %}
@@ -13,31 +13,23 @@
 <div class="everything">
     <div class="top-section">
         <div class="task-name">
-            <h3>{{ task.task_name }}</h3>
-        </div>
-        <div class="project">
-            <h3>PROJECT: {{ task.project }}</h3>
+            <h3>{{ project.title }}</h3>
         </div>
         <div class="deadline">
-            <h3>{{ task.deadline }}</h3>
+            <h3>{{ project.deadline }}</h3>
         </div>
     </div>
 
     <div class="bottom-section">
         <div class="left-section">
             <div class="summary">
-                <h4>TASK SUMMARY</h4>
-                <p>{{ task.task_summary }}</p>
-            </div>
-
-            <div class="details">
-                <h4>TASK DETAILS</h4>
-                <p>{{ task.task_details}}</p>
+                <h4>PROJECT SUMMARY</h4>
+                <p>{{ project.summary }}</p>
             </div>
 
             <div class="status">
                 <h4>STATUS</h4>
-                <button>{{ task.status }}</button>
+                <button>{{ project.status }}</button>
             </div>   
         </div>
         <div class="right-section">
@@ -57,7 +49,7 @@
                 <h4>ASSIGNEE</h4>
                 <div class="user-bubble">
                     <div class="circle">JB</div>
-                    <span>{{ task.assignee }}</span>
+                    <span>{{ project.assignee }}</span>
                 </div>
             </div>
             

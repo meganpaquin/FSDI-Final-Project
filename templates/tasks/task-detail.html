@@ -13,10 +13,10 @@
 <div class="everything">
     <div class="top-section">
         <div class="task-name">
-            <h3>{{ task.task_name }}</h3>
+            <h3>{{ task.task_name | truncatechars:100 }}</h3>
         </div>
         <div class="project">
-            <h3>PROJECT: {{ task.project }}</h3>
+            <h3>PROJECT: {{ task.project | truncatechars:100 }}</h3>
         </div>
         <div class="deadline">
             <h3>{{ task.deadline }}</h3>
@@ -43,8 +43,11 @@
         <div class="right-section">
             <div class="risks">
                 <h4>RISKS / ISSUES</h4>
+        
+
                 <div class="comment-bubble">
                     <div class="circle">JB</div>
+                    {{ task.risk }}
                     <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis dicta minus corporis animi fuga, natus mollitia explicabo beatae quis voluptas!</span>
                 </div>
             </div>

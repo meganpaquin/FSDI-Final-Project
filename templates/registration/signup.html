@@ -20,42 +20,43 @@
 
         <form method="POST">
             {% csrf_token %}
-            
             <div class="column-container">
                 <div class="row-container input-group">
-                    <label class="medium-form-label" for="username">Username:</label>
-                    <span id="username" name="username">{{ signup.username }}</span>
+                    <label class="medium-form-label" for="email">Email:</label>
+                    <span id="email" name="email">{{ form.email }}</span>
                 </div>
 
                 <div class="row-container input-group">
                     <label class="medium-form-label" for="firstname">First Name:</label>
-                    <span id="firstname" name="firstname">{{ signup.first_name }}</span>
+                    <span id="firstname" name="firstname">{{ form.first_name }}</span>
                 </div>
     
                 <div class="row-container input-group">
                     <label class="medium-form-label" for="lastname">Last Name:</label>
-                    <span id="lastname" name="lastname">{{ signup.last_name }}</span>
+                    <span id="lastname" name="lastname">{{ form.last_name }}</span>
                 </div>
     
                 <div class="row-container input-group">
-                    <label class="medium-form-label" for="email">Email:</label>
-                    <span id="email" name="email">{{ signup.email }}</span>
-                </div>
-                
-                <div class="row-container input-group">
                     <label class="medium-form-label" for="password1">Password:</label>
-                    <span id="password1" name="password1">{{ signup.password1 }}</span>
+                    <span id="password1" name="password1">{{ form.password1 }}</span>
                 </div>
+
+                <p>Your password can not be too similar to your other personal information.
+                    Your password must contain at least 8 characters.
+                    Your password can not be a commonly used password.
+                    Your password can not be entirely numeric.</p>
     
                 <div class="row-container input-group">
                     <label class="medium-form-label" for="password2">Retype Password:</label>
-                    <span id="password2" name="password2">{{ signup.password2 }}</span>
+                    <span id="password2" name="password2">{{ form.password2 }}</span>
                 </div>
     
                 <div class="row-container btn-group">
                     <button class="btn-primary"><a href="{% url 'login' %}">Login</a></button>
                     <input type="submit" value="Sign Up" class="btn-primary">
                 </div>
+
+                <div>{{ form.helptext}}</div>
             </div>
         </div>
         </form>

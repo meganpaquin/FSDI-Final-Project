@@ -74,21 +74,20 @@
 
                 <div class="row-container nav-group flex-end">
                     <i class="fa-solid fa-gear fa-lg"></i>
-                    <h4><a href="#">Settings</a></h4>
+                    <h4><a href="{% url 'change_user' user.id %}">Settings</a></h4>
                 </div>
             </div>
         </div>
         
         <div class="column-container column">
             <div class="row-container top-nav">
-                <div class="photo"><i class="fa-solid fa-user fa-lg"></i></div>
                 <div class="name-group">
                     {% if user.is_authenticated %}
                         <span>{{ user.first_name }}</span>
                         <span>{{ user.last_name }}</span>
                     {% endif %}
                 </div>
-                
+                <!-- <img src="{% static 'img/FSDI_Final_Logo.svg' %}" alt=""> -->
                 <a href="{% url 'home' %}">Home</a>
                 <a href="{% url 'list' %}">List</a>
                 <a href="{% url 'calendar' %}">Calendar</a>
