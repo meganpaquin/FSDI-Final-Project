@@ -68,6 +68,19 @@
     padding-top: 15px;
 }
 
+.users{
+    flex: 2;
+    height: 180px;
+    overflow: scroll;
+    scroll-behavior: auto;
+    padding-top: 15px;
+}
+
+.users::-webkit-scrollbar{
+    display: None;
+}
+
+
 .details::-webkit-scrollbar{
     display: None;
 }
@@ -114,13 +127,6 @@ button{
 
 .comment{
     height: 5%;
-    background-color: #666;
-    border: 1px solid black;
-    border-radius: 20px;
-    color: white;
-    padding-top: 15px;
-    padding-left: 10px;
-    margin-bottom: 10px;
 }
 
 .user-bubble{
@@ -134,6 +140,18 @@ button{
     margin: 5px 0;
 }
 
+.user-bubble-little{
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: none;
+    padding: 5px;
+    border-radius: 20px;
+    border: 1px solid black;
+    margin: 5px auto;
+    background: #666;
+}
+
 .comment-bubble{
     display: flex;
     flex-direction: row;
@@ -142,7 +160,7 @@ button{
     padding: 5px;
     border-radius: 20px;
     border: 1px solid black;
-    margin: 30px 0;
+    margin: 10px 0;
 }
 
 .comment-bubble span{
@@ -164,8 +182,29 @@ button{
     color: #FFF;
 }
 
+.circle-little{
+    margin: 0;
+    width: 30px;
+    height: 23px;
+    border: 1px solid black;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 5px;
+    justify-content: center;
+    background: blue;
+    color: #FFF;
+}
+
 .user-bubble span{
     font-size: 30px;
+    text-transform: capitalize;
+    margin-left: 10px;
+    margin-top: 5px;
+    color: #333;
+}
+
+.user-bubble-little span{
+    font-size: 16px;
     text-transform: capitalize;
     margin-left: 10px;
     margin-top: 5px;
@@ -179,4 +218,27 @@ button{
 
 .assignee h4{
     position: inherit;
+}
+
+.assignee{
+    margin: 30px auto 0px auto;
+}
+
+#id_comment{
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: none;
+    background: #FFF;
+    padding: 5px;
+    border-radius: 20px;
+    border: 1px solid black;
+    margin: 20px 0;
+}
+
+.comment-button{
+    background-color: #fff;
+    position: fixed;
+    right: 40px;
+    bottom: 130px;
 }

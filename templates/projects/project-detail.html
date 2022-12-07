@@ -27,6 +27,20 @@
                 <p>{{ project.summary }}</p>
             </div>
 
+            <div class="details" style="display: flex;
+            flex-direction: row;
+            flex-wrap: wrap; justify-content: space-between;">
+                <h4>PROJECT MEMBERS</h4>
+                {% for member in project.members.all %}
+                <div class="assignee">
+                    <div class="user-bubble-little">
+                        <div class="circle-little">JB</div>
+                        <span>{{ member.first_name }} {{ member.last_name }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
             <div class="status">
                 <h4>STATUS</h4>
                 <button>{{ project.status }}</button>
@@ -35,25 +49,31 @@
         <div class="right-section">
             <div class="risks">
                 <h4>RISKS / ISSUES</h4>
-                <div class="comment-bubble">
-                    <div class="circle">JB</div>
-                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis dicta minus corporis animi fuga, natus mollitia explicabo beatae quis voluptas!</span>
-                </div>
+                {% for comment in comments %}
+                        {% if project.title == comment.project.title %}
+                        <div class="comment-bubble">
+                        <div class="circle" style="background-color: {{comment.author.color}};">{{ comment.author.first_name | slice:1 }}{{ comment.author.last_name | slice:1}}</div>
+                        <span>{{ comment }}</span>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
             </div>
 
             <div class="comment">
-                <span>Type Your Comment...</span>
+                <form method="POST">
+                    {% csrf_token %}
+                    <span>{{ form.comment }}</span>
+                    <input type="submit" value="↪️" class="comment-button">
+                </form>
             </div>
             
             <div class="assignee">
-                <h4>ASSIGNEE</h4>
+                <h4>PROJECT MANAGER</h4>
                 <div class="user-bubble">
-                    <div class="circle">JB</div>
-                    <span>{{ project.assignee }}</span>
+                    <div class="circle" style="background-color: {{project.author.color }};">{{ project.author.first_name | slice:1 }}{{ project.author.last_name | slice:1}}</div>
+                    <span>{{ project.author.first_name }}</span>
                 </div>
             </div>
-            
-
         </div>
     </div>
 </div>
