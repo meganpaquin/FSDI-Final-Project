@@ -3,16 +3,46 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth import get_user_model
-from .models import Task
-from .forms import TaskForm
+from .models import Task, Comment
+from .forms import TaskForm, TaskCommentForm
+from django.views.generic.edit import FormMixin
+from django.urls import reverse
+from django.views.generic.detail import SingleObjectMixin
+from django.views.generic.edit import FormView
+from django.views import View
 
 class TaskListView(LoginRequiredMixin, ListView):
     template_name = "tasks/tasks.html"
     model = Task
 
-class TaskDetailView(DetailView):
+class TaskDetailView(FormMixin, DetailView):
     template_name = "tasks/task-detail.html"
     model = Task
+    form_class = TaskCommentForm
+
+    def get_success_url(self):
+        return reverse('task-detail', kwargs={'pk': self.object.id})
+
+    def get_context_data(self, **kwargs):
+        context = super(TaskDetailView, self).get_context_data(**kwargs)
+        context['comments'] = Comment.objects.all().order_by('created_on')
+
+        context['form'] = TaskCommentForm(initial={'task': self.object})
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        form.instance.task = Task.objects.get(id=self.kwargs['pk'])
+        form.save()
+        return super(TaskDetailView, self).form_valid(form)
 
 class TaskCreateView(LoginRequiredMixin, CreateView):
     template_name = "tasks/task-new.html"

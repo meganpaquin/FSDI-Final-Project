@@ -3,6 +3,7 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 from projects.models import Project
+from accounts.models import CustomUser
 
 
 class Priority(models.Model):
@@ -54,8 +55,6 @@ class Task(models.Model):
         null = True
     )
 
-    # need to add risks / issues
-
     def __str__(self):
         return self.task_name
 
@@ -63,23 +62,19 @@ class Task(models.Model):
         return reverse('task-detail', args=[self.id])
 
 
-# class Risk(models.Model):
-#     task = models.ForeignKey(
-#         Task,
-#         on_delete=models.CASCADE,
-#         related_name="comments"
-#     )
-#     user = models.ForeignKey(
-#        get_user_model(),
-#         on_delete=models.CASCADE,
-#         related_name="commenter"
-#     )
-#     comment = models.TextField(max_length=500)
-#     created_on = models.DateTimeField(auto_now_add=True)
-#     active = models.BooleanField(default=True)
+class Comment(models.Model):
+    created_on = models.DateTimeField(auto_now_add=True)
+    author = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+        related_name="comment_task_author"
+    )
+    comment = models.TextField()
+    task = models.ForeignKey(
+        Task,
+        on_delete=models.CASCADE,
+        related_name="comment_task"
+    )
 
-#     class Meta:
-#         ordering = ['created_on']
-
-#     def __str__(self):
-#         return self.comment
+    def __str__(self):
+        return self.comment

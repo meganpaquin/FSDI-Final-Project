@@ -30,7 +30,6 @@ class Project(models.Model):
     )
     members = models.ManyToManyField(CustomUser)
 
-    # need to add tasks
     # need to add milestones
 
     def __str__(self):

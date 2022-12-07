@@ -150,6 +150,7 @@ button{
     border: 1px solid black;
     margin: 5px auto;
     background: #666;
+    height: fit-content;
 }
 
 .comment-bubble{
@@ -209,6 +210,7 @@ button{
     margin-left: 10px;
     margin-top: 5px;
     color: #333;
+    height: fit-content;
 }
 
 .everything h4{
@@ -221,7 +223,15 @@ button{
 }
 
 .assignee{
-    margin: 30px auto 0px auto;
+    margin: 20px auto 0px auto;
+}
+
+.members{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-;
 }
 
 #id_comment{
@@ -233,12 +243,16 @@ button{
     padding: 5px;
     border-radius: 20px;
     border: 1px solid black;
-    margin: 20px 0;
+    margin: 5px 0;
 }
 
 .comment-button{
     background-color: #fff;
     position: fixed;
     right: 40px;
-    bottom: 130px;
+    bottom: 145px;
+}
+
+.comments{
+    margin-top: 30px;
 }

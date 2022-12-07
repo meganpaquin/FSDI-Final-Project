@@ -71,9 +71,18 @@
 }
 
 .name-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: none;
+
   margin-left: 10px;
   margin-right: 75px;
   font-size: 20px;
+  align-items: center;
+}
+
+.name-group span{
+  margin: 0 5px;
 }
 
 .top-nav a {

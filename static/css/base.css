@@ -9,6 +9,10 @@ html{
     margin-right: 0;
 }
 
+a{
+    color: inherit;
+}
+
 body{
     background-color: #333333;
     font-family: 'Roboto', sans-serif;
