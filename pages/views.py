@@ -3,7 +3,7 @@ from tasks.models import Task, Status
 from projects.models import Project
 from datetime import datetime
 from django.db.models import Q
-from accounts.models import CustomUser
+from accounts.models import CustomUser, Team
 from django.shortcuts import render
 
 class IndexPageView(TemplateView):
@@ -24,6 +24,8 @@ class HomePageView(TemplateView):
         context['projects'] = Project.objects.order_by('deadline')
 
         context['images'] = CustomUser.objects.all()
+
+        context['teams'] = Team.objects.all()
         
         return context
         
