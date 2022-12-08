@@ -25,7 +25,7 @@ class ProjectDetailView(FormMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ProjectDetailView, self).get_context_data(**kwargs)
-        context['comments'] = Comment.objects.all().order_by('created_on')
+        context['comments'] = Comment.objects.all().order_by('created_on').reverse()
 
         context['form'] = CommentForm(initial={'project': self.object})
         return context

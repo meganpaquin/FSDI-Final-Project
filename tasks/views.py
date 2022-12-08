@@ -10,6 +10,7 @@ from django.urls import reverse
 from django.views.generic.detail import SingleObjectMixin
 from django.views.generic.edit import FormView
 from django.views import View
+from django.shortcuts import render
 
 class TaskListView(LoginRequiredMixin, ListView):
     template_name = "tasks/tasks.html"
@@ -25,7 +26,7 @@ class TaskDetailView(FormMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(TaskDetailView, self).get_context_data(**kwargs)
-        context['comments'] = Comment.objects.all().order_by('created_on')
+        context['comments'] = Comment.objects.all().order_by('created_on').reverse()
 
         context['form'] = TaskCommentForm(initial={'task': self.object})
         return context

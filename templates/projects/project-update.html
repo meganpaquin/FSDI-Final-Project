@@ -44,6 +44,8 @@
                 <p>{{ form.members }}</p>
                 
                 <input type="submit" value="SUBMIT" class="submit">
+
+                <a href="{% url 'project-delete' project.id %}" class="submit">DELETE</a>
             </div>
         </div>
     </div>

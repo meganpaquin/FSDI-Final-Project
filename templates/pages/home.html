@@ -25,7 +25,7 @@
                 {% for team in teams %}
                     {% for member in team.members.all %}
                     <div class="team-member">
-                        <span class="circle" style="background-color: {{member.color}}"></span>
+                        <span class="circle" style="background-color:{{member.color}}"></span>
                         <h4><strong>{{ member.first_name }} {{ member.last_name}}</strong></h4>
                     </div>
                     {% endfor %}
