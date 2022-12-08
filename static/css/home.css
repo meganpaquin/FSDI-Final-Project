@@ -62,7 +62,7 @@
     background: #CCC;
     margin: 10px;
     align-items: center;
-    overflow: auto; 
+    overflow: scroll; 
     scroll-behavior: auto;
 }
 

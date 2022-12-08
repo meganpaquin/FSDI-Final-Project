@@ -1,17 +1,54 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 User Settings
 {% endblock title %}
 
 {% block links %}
+<link rel="stylesheet" href="{% static 'css/change-user.css' %}">
 {% endblock links %}
 
 {% block contents %}
 
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
+
+    <div class="user-info">
+        <div class="profile-pic">
+            <img src="{{ user.image.url }}" alt="the user profile picture" class="change-user-profile-pic">
+        </div>
+
+        <div class="fields">
+            <div class="input-group">
+                <label> Email Address:</label>
+                <span>{{ form.email }}</span>
+            </div>
+            <div class="input-group">
+                <label> First Name:</label>
+                <span>{{ form.first_name }}</span>
+            </div>
+            <div class="input-group">
+                <label> Last Name:</label>
+                <span>{{ form.last_name }}</span>
+            </div>
+            <div class="input-group">
+                <label> Phone Number:</label>
+                <span>{{ form.phone }}</span>
+            </div>
+            <div class="input-group">
+                <label> Color:</label>
+                <span>{{ form.color }}</span>
+            </div>
+            <div class="input-group">
+                <label> Profile Picture:</label>
+                <span>{{ form.image }}</span>
+            </div>
+        </div>
+    </div>
+
+    
+    
 
     <input type="submit" value="Save" class="btn-form">
 

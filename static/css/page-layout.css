@@ -17,6 +17,15 @@
   align-items: top;
 }
 
+.user-circle{
+  width: 50px;
+  height: 50px;
+  background-color: #FFF ;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin: auto 10px;
+}
+
 @media screen and (max-width: 1240px) {
   .left-nav {
     position: none;

@@ -57,7 +57,7 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
 class ProjectUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     template_name = "projects/project-update.html"
     model = Project
-    fields = []
+    fields = ['title', 'summary', 'deadline', 'status', 'members']
 
     def test_func(self):
         ticket_obj = self.get_object()

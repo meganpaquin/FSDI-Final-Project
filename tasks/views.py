@@ -56,7 +56,7 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
 class TaskUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     template_name = "tasks/task-update.html"
     model = Task
-    fields = []
+    fields = ['task_name', 'task_summary', 'task_details', 'deadline', 'assignee', 'status', 'project', 'priority']
 
     def test_func(self):
         ticket_obj = self.get_object()

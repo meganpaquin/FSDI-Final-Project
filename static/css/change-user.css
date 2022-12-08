@@ -1,0 +1,33 @@
+#id_email{
+    background-color: red;
+}
+
+.change-user-profile-pic{
+    margin: 20px 20px;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.user-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.fields{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.profile-pic{
+    width: 400px;
+}
