@@ -2,15 +2,10 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.contrib.auth import get_user_model
 from .models import Task, Comment
 from .forms import TaskForm, TaskCommentForm
 from django.views.generic.edit import FormMixin
 from django.urls import reverse
-from django.views.generic.detail import SingleObjectMixin
-from django.views.generic.edit import FormView
-from django.views import View
-from django.shortcuts import render
 
 class TaskListView(LoginRequiredMixin, ListView):
     template_name = "tasks/tasks.html"

@@ -2,14 +2,11 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.contrib.auth import get_user_model
 from .models import Project, Comment
 from .forms import ProjectForm, CommentForm
 from django.views.generic.edit import FormMixin
 from django.urls import reverse
-from django.views.generic.detail import SingleObjectMixin
-from django.views.generic.edit import FormView
-from django.views import View
+from bootstrap_modal_forms.generic import BSModalDeleteView
 
 class ProjectListView(LoginRequiredMixin, ListView):
     template_name = "projects/projects.html"
@@ -63,10 +60,10 @@ class ProjectUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         ticket_obj = self.get_object()
         return ticket_obj.author == self.request.user
 
-class ProjectDelView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+class ProjectDelView(LoginRequiredMixin, UserPassesTestMixin, BSModalDeleteView):
     template_name = "projects/project-delete.html"
     model = Project
-    success_url = reverse_lazy("projects")
+    success_url = reverse_lazy("home")
     
     def test_func(self):
         post_obj = self.get_object()

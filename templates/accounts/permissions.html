@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Employee Permissions
+{% endblock title %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'css/permissions.css' %}">
+{% endblock links %}
+
+{% block contents %}
+
+
+<table class="perm-table">
+    <tr>
+         <th scope="col">First Name</th>
+         <th scope="col">Last Name</th>
+         <th scope="col">Email</th>
+         <th scope="col">Phone</th>
+         <th scope="col">Permissions</th>
+         <th scope="col"></th>
+    </tr> 
+    {% for each in customuser_list %}
+    <tr>
+        <td>{{ each.first_name }}</td>
+        <td>{{ each.last_name }}</td>
+        <td>{{ each.email }}</td>
+        <td>{{ each.phone }}</td>
+        <td>
+            {% if each.is_superuser %}
+                Permission Manager
+            {% elif each.is_staff %}
+                Manager
+            {% else %}
+                Base User
+            {% endif %}
+        </td>
+        <td class="person-icon">
+            <a href="{% url 'permissions-edit' each.id %}"><i class="fa-solid fa-user-pen"></i></a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock contents %}

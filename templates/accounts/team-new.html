@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    New Team
+{% endblock title %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/teams.css' %}">
+{% endblock links %}
+
+{% block contents %}
+
+    <div class="everything">
+        <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="SUBMIT" class="submit">
+        </form>
+
+    </div>
+    
+{% endblock contents %}

@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'pages',
     'tasks',
     'projects',
+    'bootstrap_modal_forms',
 ]
 
 AUTH_USER_MODEL = "accounts.CustomUser"

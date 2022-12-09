@@ -66,10 +66,6 @@
     scroll-behavior: auto;
 }
 
-.task-section::-webkit-scrollbar {
-    display: none;
-  }
-
 .project-section{
     flex: 1;
     background: #CCC;
@@ -78,10 +74,6 @@
     overflow: auto;
     scroll-behavior: auto;
 }
-
-.project-section::-webkit-scrollbar {
-    display: none;
-  }
 
 /* Team Member Section */
 .team-member{

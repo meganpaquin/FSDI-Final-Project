@@ -51,6 +51,10 @@
                     <i class="fa-solid fa-clipboard-list fa-xl"></i>
                     <h4><a href="#">Projects</a></h4>
                 </div>
+                <div class="row-container nav-group">
+                    <i class="fa-solid fa-people-group"></i>
+                    <h4><a href="{% url 'teams' %}">Teams</a></h4>
+                </div>
             {% endif %}
 
             {% if user.is_superuser %}
@@ -61,7 +65,7 @@
 
                 <div class="row-container nav-group">
                     <i class="fa-solid fa-key fa-xl"></i>
-                    <h4><a href="#">Permissions</a></h4>
+                    <h4><a href="{% url 'permissions' %}">Permissions</a></h4>
                 </div>
 
             {% endif %}
@@ -104,5 +108,8 @@
             </div>
         </div>
     </div>
+
+    {% block javascript %}
+    {% endblock javascript %}
 </body>
 </html>

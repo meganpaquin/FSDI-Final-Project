@@ -17,9 +17,6 @@ User Settings
     <div class="user-info">
         <div class="profile-pic">
             <img src="{{ user.image.url }}" alt="the user profile picture" class="change-user-profile-pic">
-            <div class="input-group">
-                <span>{{ form.image }}</span>
-            </div>
         </div>
 
         <div class="fields">
@@ -44,10 +41,25 @@ User Settings
                 <label> Color:</label>
                 <span>{{ form.color }}</span>
             </div>
-            
+            <div class="input-group">
+                <label> Profile Picture:</label>
+                <span>{{ form.image }}</span>
+            </div>
 
-            <input type="submit" value="Save" class="btn-form">
-        </div>   
+            <div class="permission">
+                <h3>Select User Permissions Level</h3>
+                <label>Base User</label><span>{{ form.is_active }}</span>
+                <label>Manager</label><span>{{ form.is_staff }}</span>
+                <label>Permissions Manager</label><span>{{ form.is_superuser }}</span>
+            </div>
+
+        </div>
     </div>
+
+    
+    
+
+    <input type="submit" value="Save" class="btn-form">
 </form>
+
 {% endblock contents %}

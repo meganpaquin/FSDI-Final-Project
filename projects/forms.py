@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-
+from bootstrap_modal_forms.forms import BSModalModelForm
 from .models import Project, Comment
 
 class DateInput(forms.DateInput):
@@ -18,5 +18,10 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ['comment']
+
+class ProjectModelForm(BSModalModelForm):
+    class Meta:
+        model = Project
+        exclude = ['timestamp']
 
     

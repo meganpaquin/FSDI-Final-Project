@@ -1,0 +1,49 @@
+.perm-table{
+    background-color: #999;
+    margin: 20px;
+    padding: 50px;
+    text-align: left;
+}
+
+tr{
+    height: 20px;
+}
+
+td{
+    border: 1px solid black;
+    height: 100px;
+}
+
+.team-members{
+    height: 100px;
+    overflow: scroll;
+    scroll-behavior: auto;
+
+}
+
+.user{
+    display: flex;
+    flex-direction: column;
+    margin: 4px 0;
+    background-color: #666;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.submit{
+    width: 150px;
+    height: 75px;
+    margin-top: 10px;
+    font-size: 26px;
+    text-transform: capitalize;
+    color: white;
+    background-color: #7D94B5;
+}
+
+.everything{
+    background-color: #666;
+    margin: 20px;
+    padding: 20px;
+    height: 100%;
+}
