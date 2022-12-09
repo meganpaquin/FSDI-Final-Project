@@ -1,17 +1,10 @@
-Add members to team page
-Remove members from team page
-
-
-Delete tasks page
-Delete projects page
-
 Add project milestones
 
 Change task status with button click
 Change project status with button click
 Mark task as complete with circle click
 Security so only assignee can be user logged in
-
+Check/implement all site Security functionality
 
 Set up heroku build
 Copy change password files from elizaveta
@@ -19,4 +12,6 @@ Set up sendgrid connection
 
 Tasks populate on calendar
 Add functionality to dashboard
+
+Finalize CSS
 
