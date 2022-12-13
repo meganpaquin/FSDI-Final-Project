@@ -47,7 +47,7 @@
             {% for task in assigned_tasks %}
                 {% if user == task.assignee %}
                 <div class="individual-task">
-                    <span class="circle"></span>
+                    <a href="{% url 'mark_completed' task.id %}" class="circle"></a>
                     <h4><strong><a href="{% url 'task-detail' task.id %}">{{ task.task_name }}</a></strong></h4>
                     <h4>Project: {{ task.project }}</h4>
                     <h4 class="task-due">{{ task.deadline}}</h4>
@@ -58,7 +58,7 @@
             {% for task in progress_tasks %}
                 {% if user == task.assignee %}
                 <div class="individual-task">
-                    <span class="circle"></span>
+                    <a href="{% url 'mark_completed' task.id %}" class="circle"></a>
                     <h4><strong><a href="{% url 'task-detail' task.id%}">{{ task.task_name }}</a></strong></h4>
                     <h4>Project: {{ task.project }}</h4>
                     <h4 class="task-due">{{ task.deadline}}</h4>

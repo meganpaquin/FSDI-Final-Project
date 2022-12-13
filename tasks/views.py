@@ -2,10 +2,11 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from .models import Task, Comment
+from .models import Task, Comment, Status
 from .forms import TaskForm, TaskCommentForm
 from django.views.generic.edit import FormMixin
 from django.urls import reverse
+from django.shortcuts import redirect
 
 class TaskDetailView(FormMixin, UserPassesTestMixin, DetailView):
     template_name = "tasks/task-detail.html"
@@ -68,3 +69,12 @@ class TaskDelView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return post_obj.author == self.request.user
 
 
+
+def mark_completed(request, pk):
+    task = Task.objects.get(pk=pk)
+    completed = Status.objects.get(name="complete")
+
+    task.status = completed
+    task.save()
+
+    return redirect('home')

@@ -4,7 +4,6 @@ Bugs:
 Functionality Additions: 
     Add project milestones
     Add task delete popup
-    Change task status with button click
     Change project status with button click
     Mark task as complete with circle click
     Sort by priority in list view
