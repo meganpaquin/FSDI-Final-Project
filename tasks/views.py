@@ -7,11 +7,7 @@ from .forms import TaskForm, TaskCommentForm
 from django.views.generic.edit import FormMixin
 from django.urls import reverse
 
-class TaskListView(LoginRequiredMixin, ListView):
-    template_name = "tasks/tasks.html"
-    model = Task
-
-class TaskDetailView(FormMixin, DetailView):
+class TaskDetailView(FormMixin, UserPassesTestMixin, DetailView):
     template_name = "tasks/task-detail.html"
     model = Task
     form_class = TaskCommentForm
@@ -39,6 +35,10 @@ class TaskDetailView(FormMixin, DetailView):
         form.instance.task = Task.objects.get(id=self.kwargs['pk'])
         form.save()
         return super(TaskDetailView, self).form_valid(form)
+
+    def test_func(self):
+        ticket_obj = self.get_object()
+        return ticket_obj.author == self.request.user
 
 class TaskCreateView(LoginRequiredMixin, CreateView):
     template_name = "tasks/task-new.html"

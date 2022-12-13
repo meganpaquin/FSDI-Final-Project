@@ -1,17 +1,30 @@
-Add project milestones
+Bugs:
+    changing user is somehow turning off Active status
 
-Change task status with button click
-Change project status with button click
-Mark task as complete with circle click
-Security so only assignee can be user logged in
-Check/implement all site Security functionality
+Functionality Additions: 
+    Add project milestones
+    Add task delete popup
+    Change task status with button click
+    Change project status with button click
+    Mark task as complete with circle click
+    Sort by priority in list view
+    Project List View
 
-Set up heroku build
-Copy change password files from elizaveta
-Set up sendgrid connection
+Security Issues:
+    Anyone can assign anyone else a task regardless of permissions
 
-Tasks populate on calendar
-Add functionality to dashboard
+CSS Issues:
+    Password Reset CSS
+    Password Change CSS
+    Teams CSS
+    Edit Teams CSS
+    Permissions CSS
+    Permissions Edit CSS
+    Settings CSS
+    Task Comments CSS
+    Project Details CSS
 
-Finalize CSS
-
+Extra If Time Allows:
+    Tasks populate on calendar
+    Add functionality to dashboard
+    Searchbar for teams

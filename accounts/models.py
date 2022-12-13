@@ -20,7 +20,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=128)
     last_name = models.CharField(max_length=128)
     phone = models.CharField(max_length=9, null=True)
-    image = models.ImageField(upload_to='images/', default='default_img.png')
+    image = models.ImageField(upload_to='images/', default='images/default_img.png')
 
     
     objects = CustomUserManager()

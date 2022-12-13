@@ -2,6 +2,7 @@ from django import forms
 from django.forms import ModelForm
 
 from .models import Task, Comment
+from accounts.models import CustomUser
 
 class DateInput(forms.DateInput):
     input_type = 'date'

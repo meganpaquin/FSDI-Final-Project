@@ -13,6 +13,7 @@ class HomePageView(TemplateView):
     template_name = "pages/home.html"
 
     def get_context_data(self, **kwargs):
+        loggedin = self.request.user
         context = super().get_context_data(**kwargs)
 
         assigned = Status.objects.get(name="assigned")
@@ -25,7 +26,7 @@ class HomePageView(TemplateView):
 
         context['images'] = CustomUser.objects.all()
 
-        context['teams'] = Team.objects.all()
+        context['teams'] = Team.objects.filter(leader=loggedin.id)
         
         return context
         
@@ -45,10 +46,10 @@ class ListPageView(TemplateView):
         context = super().get_context_data(**kwargs)
 
         assigned = Status.objects.get(name="assigned")
-        context['assigned_tasks'] = Task.objects.filter(status=assigned).order_by('deadline').reverse().filter(deadline__gt=datetime.today()).filter
+        context['assigned_tasks'] = Task.objects.filter(status=assigned).order_by('deadline').reverse().filter(deadline__gt=datetime.today())
 
         progress = Status.objects.get(name="in-progress")
-        context['progress_tasks'] = Task.objects.filter(status=progress).order_by('deadline').reverse()
+        context['progress_tasks'] = Task.objects.filter(status=progress).order_by('deadline').reverse().filter(deadline__gt=datetime.today())
 
         complete = Status.objects.get(name="complete")
         context['complete_tasks'] = Task.objects.filter(status=complete).order_by('deadline').reverse()
