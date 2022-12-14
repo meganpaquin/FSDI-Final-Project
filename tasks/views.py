@@ -7,6 +7,7 @@ from .forms import TaskForm, TaskCommentForm
 from django.views.generic.edit import FormMixin
 from django.urls import reverse
 from django.shortcuts import redirect
+from django.http import HttpResponseRedirect
 
 class TaskDetailView(FormMixin, UserPassesTestMixin, DetailView):
     template_name = "tasks/task-detail.html"
@@ -88,20 +89,38 @@ def complete_list(request, pk):
 
     return redirect('list')
 
-def mark_assigned(request, pk):
+def mark_complete_detail(request, pk):
+    task = Task.objects.get(pk=pk)
+    assigned = Status.objects.get(name="complete")
+
+    task.status = assigned
+    task.save()
+
+    return redirect(reverse('task-detail', kwargs={'pk':task.pk}))
+
+def mark_assigned_detail(request, pk):
     task = Task.objects.get(pk=pk)
     assigned = Status.objects.get(name="assigned")
 
     task.status = assigned
     task.save()
 
-    return redirect('home')
+    return redirect(reverse('task-detail', kwargs={'pk':task.pk}))
 
-def mark_progress(request, pk):
+def mark_progress_detail(request, pk):
     task = Task.objects.get(pk=pk)
     progress = Status.objects.get(name="in-progress")
     
     task.status = progress
     task.save()
 
-    return redirect('home')
+    return redirect(reverse('task-detail', kwargs={'pk':task.pk}))
+
+def mark_archived_detail(request, pk):
+    task = Task.objects.get(pk=pk)
+    progress = Status.objects.get(name="archived")
+    
+    task.status = progress
+    task.save()
+
+    return redirect(reverse('task-detail', kwargs={'pk':task.pk}))

@@ -16,7 +16,7 @@ class CustomUserChangeForm(UserChangeForm):
 
     class Meta:
         model = CustomUser
-        fields = ('email', 'first_name', 'last_name', 'image', 'phone', 'color', 'is_active', 'is_superuser', 'is_staff')
+        fields = ('email', 'first_name', 'last_name', 'image', 'phone', 'color')
         widgets = {
             'color': TextInput(attrs={'type': 'color'}),
         }

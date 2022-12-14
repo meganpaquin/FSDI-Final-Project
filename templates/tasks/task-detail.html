@@ -42,7 +42,14 @@
 
             <div class="status">
                 <h4>STATUS</h4>
-                <button>{{ task.status }}</button>
+
+                {% if task.status == "assigned" %}
+                    <a href="{% url 'progress_detail' task.id %}"><button>{{ task.status }}</button></a>
+                {% elif task.status == "in-progress" %}
+                    <a href="{% url 'complete_detail' task.id %}"><button>{{ task.status }}</button></a>
+                {% else %}
+                    <a href="{% url 'archived_detail' task.id %}"><button>{{ task.status }}</button></a>
+                {% endif %}
             </div>   
         </div>
         <div class="right-section">
