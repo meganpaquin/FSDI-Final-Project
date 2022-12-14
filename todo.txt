@@ -1,16 +1,16 @@
 Bugs:
     changing user is somehow turning off Active status
+    Remove option to assign task status as None
 
-Functionality Additions: 
-    Add project milestones
-    Add task delete popup
+Functionality Additions:
     Change project status with button click
-    Mark task as complete with circle click
+    Change task status with button click
     Sort by priority in list view
     Project List View
 
 Security Issues:
     Anyone can assign anyone else a task regardless of permissions
+        want to have so superuser can assign to anyone but base user can only assing to self
 
 CSS Issues:
     Password Reset CSS
@@ -22,8 +22,3 @@ CSS Issues:
     Settings CSS
     Task Comments CSS
     Project Details CSS
-
-Extra If Time Allows:
-    Tasks populate on calendar
-    Add functionality to dashboard
-    Searchbar for teams

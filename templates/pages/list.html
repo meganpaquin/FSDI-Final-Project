@@ -19,7 +19,7 @@
             {% if user == task.assignee %}
             <a href="{% url 'task-detail' task.id %}">
                 <div class="task-overdue">
-                    <span class="circle"></span> 
+                    <a href="{% url 'complete_list' task.id %}" class="circle"></a>
                     <div class="row-container">
                         <p class="title">{{ task.task_name }}</p>
                         <p class="priority">Priority: {{ task.priority }}</p>
@@ -37,7 +37,7 @@
             {% if user == task.assignee %}
             <a href="{% url 'task-detail' task.id %}">
                 <div class="task-due">
-                    <span class="circle"></span> 
+                    <a href="{% url 'complete_list' task.id %}" class="circle"></a>
                     <div class="row-container">
                         <p class="title">{{ task.task_name }}</p>
                         <p class="priority">Priority: {{ task.priority }}</p>
@@ -55,7 +55,7 @@
             {% if user == task.assignee %}
             <a href="{% url 'task-detail' task.id %}">
                 <div class="task-due">
-                    <span class="circle"></span> 
+                    <a href="{% url 'complete_list' task.id %}" class="circle"></a>
                     <div class="row-container">
                         <p class="title">{{ task.task_name }}</p>
                         <p class="priority">Priority: {{ task.priority }}</p>

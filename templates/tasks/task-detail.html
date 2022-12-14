@@ -7,6 +7,7 @@
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'css/task-detail.css' %}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 {% endblock links %}
 
 {% block contents %}
@@ -14,7 +15,11 @@
     <div class="top-section">
         <div class="task-name">
             <h3>{{ task.task_name | truncatechars:100 }} <a href="{% url 'task-update' task.id%}"><i class="fa-solid fa-pen-to-square"></i></a></h3>
+            <button type="button" class="delete-task bs-modal btn btn-sm btn-danger" data-form-url="{% url 'task-delete' task.id %}">
+                <span class="fa fa-trash"></span>
+            </button>
         </div>
+        
         <div class="project">
             <h3>PROJECT: {{ task.project | truncatechars:100 }}</h3>
         </div>
@@ -75,4 +80,26 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content"></div>
+    </div>
+</div>
 {% endblock contents %}
+
+{% block javascript %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+        
+            $(".delete-task").each(function () {
+            $(this).modalForm({formURL: $(this).data("form-url"), isDeleteForm: true});
+        });
+        });
+    </script>
+{% endblock javascript %}

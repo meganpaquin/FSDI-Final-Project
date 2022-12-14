@@ -62,7 +62,7 @@ class TaskUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 class TaskDelView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     template_name = "tasks/task-delete.html"
     model = Task
-    success_url = reverse_lazy("tasks")
+    success_url = reverse_lazy("home")
     
     def test_func(self):
         post_obj = self.get_object()
@@ -75,6 +75,33 @@ def mark_completed(request, pk):
     completed = Status.objects.get(name="complete")
 
     task.status = completed
+    task.save()
+
+    return redirect('home')
+
+def complete_list(request, pk):
+    task = Task.objects.get(pk=pk)
+    completed = Status.objects.get(name="complete")
+
+    task.status = completed
+    task.save()
+
+    return redirect('list')
+
+def mark_assigned(request, pk):
+    task = Task.objects.get(pk=pk)
+    assigned = Status.objects.get(name="assigned")
+
+    task.status = assigned
+    task.save()
+
+    return redirect('home')
+
+def mark_progress(request, pk):
+    task = Task.objects.get(pk=pk)
+    progress = Status.objects.get(name="in-progress")
+    
+    task.status = progress
     task.save()
 
     return redirect('home')
