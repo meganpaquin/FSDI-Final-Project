@@ -18,6 +18,10 @@
 .right-section{
     flex: 1;
     height: calc(100vh - 225px);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .top-section{
@@ -40,6 +44,18 @@
 
 .task-name{
     padding-left: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.buttons{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.buttons a{
+    margin-right: 10px;
 }
 
 .deadline{
@@ -89,13 +105,14 @@ p{
     font-size: 20px;
     padding: 30px 50px;
 }
+
 .status{
     flex: 1;
     height: calc(100% / 6);
     padding-top: 15px;
 }
 
-button{
+.status button{
     width: 150px;
     height: 75px;
     margin-top: 30px;
@@ -175,11 +192,11 @@ button{
 .circle{
     margin: 5px;
     width: 35px;
-    height: 28px;
+    height: 35px;
     border: 1px solid black;
     border-radius: 50%;
     text-align: center;
-    padding-top: 7px;
+    padding-top: 5px;
     justify-content: center;
     background: blue;
     color: #FFF;
@@ -233,11 +250,10 @@ button{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-;
 }
 
 #id_comment{
-    height: 30px;
+    height: 40px;
     display: flex;
     flex-direction: row;
     flex-wrap: none;
@@ -252,7 +268,7 @@ button{
     background-color: #fff;
     position: fixed;
     right: 40px;
-    bottom: 145px;
+    bottom: 130px;
 }
 
 .comments{
@@ -264,4 +280,67 @@ button{
 
 .comments::-webkit-scrollbar{
     display: None;
+}
+
+#id_task_summary{
+    width: 100%;
+}
+
+#id_task_details{
+    width: 100%;
+}
+
+#id_task_deadline{
+    margin: 0 auto;
+}
+
+#id_task_name{
+    width: 70%;
+    height: 30px;
+    font-size: 20px;
+}
+
+#id_deadline{
+    height: 30px;
+    font-size: 20px;
+}
+
+#id_status, #id_assignee, #id_priority, #id_project{
+    height: 40px;
+    font-size: 20px;
+    max-width: 80%;
+}
+
+.task-name h3{
+    width: 100%;
+}
+
+#id_project{
+    width: 80%;
+}
+
+#id_status{
+    height: 40px;
+    font-size: 20px;
+    max-width: 80%;
+}
+
+#id_members{
+    width: 100%;
+    height: 45vh;
+}
+
+#id_title{
+    height: 40px;
+    font-size: 20px;
+    width: 70%;
+}
+
+#id_summary{
+    width: 100%;
+}
+
+.special-project-btn{
+    justify-content: center;
+    margin: 0px auto;
 }

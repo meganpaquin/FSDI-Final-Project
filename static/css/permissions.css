@@ -9,10 +9,27 @@
     margin: 20px;
     border: 1px solid black;
     text-align: left;
-    font-size: 20px;
+    font-size: 22px;
+    height: calc(100vh - 100px);
+    overflow: scroll;
+    scroll-behavior: auto;
 }
 
 .fa-solid{
     text-align: center;
     font-size: 25px;
+}
+
+tr{
+    border-bottom: 1px solid black;
+}
+
+td{
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
+
+.change-user-profile-pic{
+    height: 300px;
+    width: 300px;
 }

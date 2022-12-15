@@ -12,13 +12,16 @@
 
 {% block contents %}
 
+<div class="teamstable">
     <table class="perm-table">
         <tr>
              <th scope="col">Team Name</th>
              <th scope="col">Team Leader</th>
              <th scope="col">Leader Email</th>
              <th scope="col">Team Members</th>
-             <th scope="col"></th>
+             <th scope="col"><div class="buttons">
+                <a href="{% url 'team-new' %}"><button class="team-btn">Add New Team</button></a>
+            </div></th>
         </tr> 
 
         {% for team in team_list %}
@@ -46,11 +49,8 @@
         </tr>
         {% endfor %}
     </table>
-
-
-        <div class="buttons">
-            <a href="{% url 'team-new' %}"><button>Add New Team</button></a>
-        </div>
+</div>
+    
 
         <div class="modal fade" tabindex="-1" role="dialog" id="modal">
             <div class="modal-dialog" role="document">

@@ -1,8 +1,20 @@
+.teamstable{
+    height: calc(100vh - 100px);
+    overflow: scroll;
+    scroll-behavior: aut0;
+}
+
 .perm-table{
     background-color: #999;
     margin: 20px;
-    padding: 50px;
+    padding: 60px;
     text-align: left;
+    width: 96%;
+    border: 1px solid black;
+}
+
+.perm-table tr{
+    border: 1px solid black;
 }
 
 tr{
@@ -10,8 +22,14 @@ tr{
 }
 
 td{
-    border: 1px solid black;
     height: 100px;
+    padding: 10px;
+    padding-left: 20px;
+}
+
+th{
+    padding: 20px;
+    font-size: 18px;
 }
 
 .team-members{
@@ -46,4 +64,40 @@ td{
     margin: 20px;
     padding: 20px;
     height: 100%;
+}
+
+.team-btn{
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+    text-transform: capitalize;
+    color: #fff;
+    background-color: #7D94B5;
+}
+
+#id_name, #id_leader, #id_members{
+    font-size: 20px;
+    height: 40px;
+    width: 40%;
+}
+
+#id_members{
+    width: 40%;
+    height: calc(100vh - 400px);
+}
+
+label{
+    font-size: 24px;
+    width: 300px;
+    margin: 30px;
+    text-align: left;
+}
+
+p{
+    text-align: center;
+}
+
+form{
+    justify-content: center;
+    margin: 0px auto;
 }

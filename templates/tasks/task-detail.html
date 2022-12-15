@@ -14,10 +14,13 @@
 <div class="everything">
     <div class="top-section">
         <div class="task-name">
-            <h3>{{ task.task_name | truncatechars:100 }} <a href="{% url 'task-update' task.id%}"><i class="fa-solid fa-pen-to-square"></i></a></h3>
-            <button type="button" class="delete-task bs-modal btn btn-sm btn-danger" data-form-url="{% url 'task-delete' task.id %}">
-                <span class="fa fa-trash"></span>
-            </button>
+            
+            <h3>{{ task.task_name | truncatechars:30 }}</h3>
+            <div class="buttons">
+                <a href="{% url 'task-update' task.id%}"><i class="fa-solid fa-pen-to-square fa-2xl"></i></a>
+                <button type="button" class="delete-task bs-modal fa fa-trash fa-2xl" data-form-url="{% url 'task-delete' task.id %}">
+                </button>
+            </div>
         </div>
         
         <div class="project">
@@ -43,12 +46,14 @@
             <div class="status">
                 <h4>STATUS</h4>
 
-                {% if task.status == "assigned" %}
+                {% if task.status == 'assigned' %}
                     <a href="{% url 'progress_detail' task.id %}"><button>{{ task.status }}</button></a>
-                {% elif task.status == "in-progress" %}
+                {% elif task.status == 'in-progress' %}
                     <a href="{% url 'complete_detail' task.id %}"><button>{{ task.status }}</button></a>
-                {% else %}
+                {% elif task.status == 'complete' %}
                     <a href="{% url 'archived_detail' task.id %}"><button>{{ task.status }}</button></a>
+                {% else %}
+                    <a href=""><button>Error</button></a>
                 {% endif %}
             </div>   
         </div>
@@ -78,7 +83,7 @@
             <div class="assignee">
                 <h4>ASSIGNEE</h4>
                 <div class="user-bubble">
-                    <div class="circle">JB</div>
+                    <div class="circle" style="background-color: {{comment.author.color}};">{{ task.assignee.first_name | slice:1 }}{{ task.assignee.last_name | slice:1}}</div>
                     <span>{{ task.assignee }}</span>
                 </div>
             </div>

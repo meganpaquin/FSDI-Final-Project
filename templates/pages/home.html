@@ -48,8 +48,8 @@
                 {% if user == task.assignee %}
                 <div class="individual-task">
                     <a href="{% url 'mark_completed' task.id %}" class="circle"></a>
-                    <h4><strong><a href="{% url 'task-detail' task.id %}">{{ task.task_name }}</a></strong></h4>
-                    <h4>Project: {{ task.project }}</h4>
+                    <h4><strong><a href="{% url 'task-detail' task.id %}">{{ task.task_name | truncatechars:75 }}</a></strong></h4>
+                    <h4>Project: {{ task.project | truncatechars:50 }}</h4>
                     <h4 class="task-due">{{ task.deadline}}</h4>
                 </div>
                 {% endif %}
@@ -59,8 +59,8 @@
                 {% if user == task.assignee %}
                 <div class="individual-task">
                     <a href="{% url 'mark_completed' task.id %}" class="circle"></a>
-                    <h4><strong><a href="{% url 'task-detail' task.id%}">{{ task.task_name }}</a></strong></h4>
-                    <h4>Project: {{ task.project }}</h4>
+                    <h4><strong><a href="{% url 'task-detail' task.id%}">{{ task.task_name  | truncatechars:75  }}</a></strong></h4>
+                    <h4>Project: {{ task.project | truncatechars:50 }}</h4>
                     <h4 class="task-due">{{ task.deadline}}</h4>
                 </div>
                 {% endif %}
@@ -88,7 +88,7 @@
                     <div class="individual-project">
                         <span class="square"></span>
                         <div class="details">
-                            <h4><a href="{% url 'project-detail' project.id%}">{{ project.title }}</a></h4>
+                            <h4><a href="{% url 'project-detail' project.id%}">{{ project.title | truncatechars:30 }}</a></h4>
                             <h5>{{ project.author.first_name }} / {{ project.status }}</h5>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
                     <div class="individual-project">
                         <span class="square"></span>
                         <div class="details">
-                            <h4><a href="{% url 'project-detail' project.id%}">{{ project.title }}</a></h4>
+                            <h4><a href="{% url 'project-detail' project.id%}">{{ project.title |truncatechars:30 }}</a></h4>
                             <h5>{{ project.author.first_name }} / {{ project.status }}</h5>
                         </div>
                     </div>

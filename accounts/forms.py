@@ -30,3 +30,11 @@ class TeamModelForm(BSModalModelForm):
     class Meta:
         model = Team
         exclude = ['timestamp']
+
+class AdminUserChangeForm(UserChangeForm):
+    class Meta:
+        model = CustomUser
+        fields = ('email', 'first_name', 'last_name', 'image', 'phone', 'color', "is_active", "is_superuser", "is_staff")
+        widgets = {
+            'color': TextInput(attrs={'type': 'color'}),
+        }

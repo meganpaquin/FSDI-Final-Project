@@ -44,4 +44,33 @@
     width: 200px;
 }
 
+label{
+    font-size: 20px;
+    text-align: left;
+}
 
+#id_email, #id_first_name, #id_last_name, #id_phone{
+    height: 40px;
+    font-size: 20px;
+}
+
+#file_upload_button{
+    font-size: 20px;
+    
+}
+
+#id_image{
+    font-size: 20px;
+}
+
+.btn-form{
+    font-size: 20px;
+    height: 40px;
+    background-color: #7D94B5;
+}
+
+button{
+    font-size: 20px;
+    height: 40px;
+    background-color: #7D94B5;
+}

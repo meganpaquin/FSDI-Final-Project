@@ -23,13 +23,13 @@
                 <h3>Project Name: {{ form.title }}</h3>
             </div>
             <div class="deadline">
-                <h3>DEADLINE: {{ form.deadline }}</h3>
+                <h3 style="text-align: left;">DEADLINE: {{ form.deadline }}</h3>
             </div>
         </div>
     
         <div class="bottom-section">
             <div class="left-section">
-                <div class="summary">
+                <div class="summary" style="overflow: hidden;">
                     <h4>PROJECT SUMMARY</h4>
                     <p>{{ form.summary }}</p>
                 </div>
@@ -43,9 +43,7 @@
                 <h4>MEMBERS</h4>
                 <p>{{ form.members }}</p>
                 
-                <input type="submit" value="SUBMIT" class="submit">
-
-                <a href="{% url 'project-delete' project.id %}" class="submit">DELETE</a>
+                <input type="submit" value="SUBMIT" class="submit special-project-btn">
             </div>
         </div>
     </div>

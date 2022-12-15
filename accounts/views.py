@@ -1,5 +1,5 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .forms import CustomUserCreationForm, CustomUserChangeForm, NewTeamForm
+from .forms import CustomUserCreationForm, CustomUserChangeForm, NewTeamForm, AdminUserChangeForm
 from django.urls import reverse_lazy
 from .models import CustomUser, Team
 from django.views.generic import ListView
@@ -35,7 +35,7 @@ class PermissionListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
 class PermissionChangeView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     template_name = "accounts/permissions-edit.html"
-    form_class = CustomUserChangeForm
+    form_class = AdminUserChangeForm
     model = CustomUser
     success_url = reverse_lazy("permissions")
 
@@ -77,3 +77,4 @@ class TeamDeleteView(LoginRequiredMixin, UserPassesTestMixin, BSModalDeleteView)
 
     def test_func(self):
         return self.request.user.is_staff
+
