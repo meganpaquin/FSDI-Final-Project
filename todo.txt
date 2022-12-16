@@ -1,18 +1,13 @@
 Bugs:
-    Remove option to assign task status as None
+    Status For-Loop not working for task or project
 
 Functionality Additions:
-    Link from Task List View to detail View
-    Link from User Name to Settings
     Project Members also see projects
-    Change project status with button click
-    Change task status with button click
     Sort by priority in list view
     Project List View
 
 Security Issues:
-    Anyone can assign anyone else a task regardless of permissions
-        want to have so superuser can assign to anyone but base user can only assing to self
+    None
 
 CSS Issues:
     Password Reset CSS

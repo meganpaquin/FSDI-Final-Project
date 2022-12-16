@@ -14,6 +14,11 @@ class ProjectForm(ModelForm):
             'deadline' : DateInput()
         }
 
+    def __init__(self, *args, **kwargs):
+        super(ProjectForm, self).__init__(*args, **kwargs)
+        self.fields['status'].required= True
+        self.fields['members'].required= True
+
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment

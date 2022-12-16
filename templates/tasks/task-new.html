@@ -42,7 +42,11 @@
             </div>
             <div class="right-section">
                 <h4>ASSIGNEE</h4>
-                <p>{{ form.assignee }}</p>
+                {% if user.is_superuser %}
+                    <p>{{ form.assignee }}</p>
+                {% else %}
+                    <p>{{ user.first_name}} {{ user.last_name }}</p>
+                {% endif %}
                 <h4>PROJECT</h4>
                 <p>{{ form.project }}</p>
                 <h4>PRIORITY</h4>

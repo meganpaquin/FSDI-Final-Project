@@ -14,11 +14,14 @@
 <div class="everything">
     <div class="top-section">
         <div class="task-name">
-            <h3>{{ project.title }} <a href="{% url 'project-update' project.id%}"><i class="fa-solid fa-pen-to-square"></i></a></h3>
+            <h3>{{ project.title }}</h3>
+            <div class="buttons">
+                <a href="{% url 'project-update' project.id%}"><i class="fa-solid fa-pen-to-square fa-2xl"></i></a>
+                <button type="button" class="delete-project bs-modal fa fa-trash fa-2xl" data-form-url="{% url 'project-delete' project.id %}">
+                </button>
+            </div>
         </div>
-        <button type="button" class="delete-project bs-modal btn btn-sm btn-danger" data-form-url="{% url 'project-delete' project.id %}">
-            <span class="fa fa-trash"></span>
-        </button>
+        
         <div class="deadline">
             <h3>{{ project.deadline }}</h3>
         </div>
@@ -47,7 +50,15 @@
 
             <div class="status">
                 <h4>STATUS</h4>
-                <button>{{ project.status }}</button>
+                {% if project.status == 'assigned' %}
+                    <a href="{% url 'progress_detail' project.id %}"><button>{{ project.status }}</button></a>
+                {% elif project.status == 'in-progress' %}
+                    <a href="{% url 'complete_detail' project.id %}"><button>{{ project.status }}</button></a>
+                {% elif project.status == 'complete' %}
+                    <a href="{% url 'archived_detail' project.id %}"><button>{{ project.status }}</button></a>
+                {% else %}
+                    <a href=""><button>Error</button></a>
+                {% endif %}
             </div>   
         </div>
         <div class="right-section">
@@ -68,10 +79,10 @@
             </div>
 
             <div class="comment">
-                <form method="POST">
+                <form method="POST" id="form">
                     {% csrf_token %}
-                    <span>{{ form.comment }}</span>
-                    <input type="submit" value="↪️" class="comment-button">
+                    <span id="comment">{{ form.comment }}</span>
+                    <input type="submit" class="comment-button">
                 </form>
             </div>
             

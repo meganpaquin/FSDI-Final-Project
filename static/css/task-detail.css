@@ -18,9 +18,7 @@
 .right-section{
     flex: 1;
     height: calc(100vh - 225px);
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    text-align: left;
     margin: 0 auto;
 }
 
@@ -67,7 +65,7 @@
 }
 
 .summary{
-    height: 180px;
+    height: 25vh;
     overflow: scroll;
     scroll-behavior: auto;
 }
@@ -78,7 +76,7 @@
 
 .details{
     flex: 2;
-    height: 180px;
+    height: 25vh;
     overflow: scroll;
     scroll-behavior: auto;
     padding-top: 15px;
@@ -205,11 +203,11 @@ p{
 .circle-little{
     margin: 0;
     width: 30px;
-    height: 23px;
+    height: 30px;
     border: 1px solid black;
     border-radius: 50%;
     text-align: center;
-    padding-top: 5px;
+    padding-top: 3px;
     justify-content: center;
     background: blue;
     color: #FFF;
@@ -220,7 +218,7 @@ p{
     text-transform: capitalize;
     margin-left: 10px;
     margin-top: 5px;
-    color: #333;
+    color: white;
 }
 
 .user-bubble-little span{
@@ -228,7 +226,7 @@ p{
     text-transform: capitalize;
     margin-left: 10px;
     margin-top: 5px;
-    color: #333;
+    color: white;
     height: fit-content;
 }
 
@@ -254,6 +252,7 @@ p{
 
 #id_comment{
     height: 40px;
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: none;
@@ -265,10 +264,7 @@ p{
 }
 
 .comment-button{
-    background-color: #fff;
-    position: fixed;
-    right: 40px;
-    bottom: 130px;
+    display: none;
 }
 
 .comments{
@@ -343,4 +339,14 @@ p{
 .special-project-btn{
     justify-content: center;
     margin: 0px auto;
+}
+
+.task-name h3{
+    height: 30px;
+    overflow: hidden;
+    background-color: #999;
+}
+
+.task-name h3:hover{
+    overflow: visible;
 }

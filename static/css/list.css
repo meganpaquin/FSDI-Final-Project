@@ -105,3 +105,11 @@
     margin: 5px;
     background-color: #b6c199;
 }
+
+.detail-link{
+    width: 90%;
+}
+
+.detail-link:hover{
+    text-decoration: underline;
+}

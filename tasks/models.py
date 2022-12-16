@@ -69,7 +69,7 @@ class Comment(models.Model):
         on_delete=models.CASCADE,
         related_name="comment_task_author"
     )
-    comment = models.TextField()
+    comment = models.CharField(max_length=300, default="Type your comment here...")
     task = models.ForeignKey(
         Task,
         on_delete=models.CASCADE,

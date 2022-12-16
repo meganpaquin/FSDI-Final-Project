@@ -13,5 +13,4 @@ urlpatterns = [
     path('mark_assigned_detail/<int:pk>/', views.mark_assigned_detail, name="assigned_detail"),
     path('mark_progress_detail/<int:pk>/', views.mark_progress_detail, name="progress_detail"),
     path('mark_archived_detail/<int:pk>/', views.mark_archived_detail, name="archived_detail"),
-
 ]

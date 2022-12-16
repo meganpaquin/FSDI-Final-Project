@@ -88,8 +88,11 @@
                 <div class="name-group">
                     <img src="{{ user.image.url }}" alt="user profile image" class="user-circle">
                     {% if user.is_authenticated %}
-                        <span>{{ user.first_name }}</span>
-                        <span>{{ user.last_name }}</span>
+                        <a href="{% url 'change_user' user.id %}">
+                            <span>{{ user.first_name }}</span>
+                            <span>{{ user.last_name }}</span>
+                        </a>
+                        
                     {% endif %}
                 </div>
 

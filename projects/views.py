@@ -2,11 +2,12 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from .models import Project, Comment
+from .models import Project, Comment, Status
 from .forms import ProjectForm, CommentForm
 from django.views.generic.edit import FormMixin
 from django.urls import reverse
 from bootstrap_modal_forms.generic import BSModalDeleteView
+from django.shortcuts import redirect
 
 class ProjectListView(LoginRequiredMixin, ListView):
     template_name = "projects/projects.html"
@@ -70,3 +71,38 @@ class ProjectDelView(LoginRequiredMixin, UserPassesTestMixin, BSModalDeleteView)
         return post_obj.author == self.request.user
 
 
+def mark_complete_detail(request, pk):
+    project = Project.objects.get(pk=pk)
+    assigned = Status.objects.get(name="complete")
+
+    project.status = assigned
+    project.save()
+
+    return redirect(reverse('project-detail', kwargs={'pk':project.pk}))
+
+def mark_assigned_detail(request, pk):
+    project = Project.objects.get(pk=pk)
+    assigned = Status.objects.get(name="assigned")
+
+    project.status = assigned
+    project.save()
+
+    return redirect(reverse('project-detail', kwargs={'pk':project.pk}))
+
+def mark_progress_detail(request, pk):
+    project = Project.objects.get(pk=pk)
+    progress = Status.objects.get(name="in-progress")
+    
+    project.status = progress
+    project.save()
+
+    return redirect(reverse('project-detail', kwargs={'pk':project.pk}))
+
+def mark_archived_detail(request, pk):
+    project = Project.objects.get(pk=pk)
+    progress = Status.objects.get(name="archived")
+    
+    project.status = progress
+    project.save()
+
+    return redirect(reverse('project-detail', kwargs={'pk':project.pk}))

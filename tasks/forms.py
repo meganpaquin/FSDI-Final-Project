@@ -15,6 +15,12 @@ class TaskForm(ModelForm):
             'deadline' : DateInput()
         }
 
+    def __init__(self, *args, **kwargs):
+        super(TaskForm, self).__init__(*args, **kwargs)
+        
+        self.fields['assignee'].required= False
+        self.fields['status'].required=True
+
 class TaskCommentForm(forms.ModelForm):
     class Meta:
         model = Comment

@@ -17,16 +17,16 @@
         <h3>Overdue</h3>
         {% for task in overdue_tasks %}
             {% if user == task.assignee %}
-            <a href="{% url 'task-detail' task.id %}">
                 <div class="task-overdue">
-                    <a href="{% url 'complete_list' task.id %}" class="circle"></a>
-                    <div class="row-container">
-                        <p class="title">{{ task.task_name }}</p>
-                        <p class="priority">Priority: {{ task.priority }}</p>
-                        <p class="due">{{ task.deadline }}</p>
-                    </div>
+                        <a href="{% url 'complete_list' task.id %}" class="circle"></a>
+                        <div class="row-container">
+                            <a href="{% url 'task-detail' task.id %}" class="detail-link">
+                            <p class="title">{{ task.task_name }}</p>
+                            <p class="priority">Priority: {{ task.priority }}</p>
+                            <p class="due">{{ task.deadline }}</p>
+                            </a>
+                        </div>
                 </div>
-            </a>
             {% endif %}
         {% endfor %}
     </div>
@@ -35,16 +35,16 @@
         <h3>To Do</h3>
         {% for task in assigned_tasks %}
             {% if user == task.assignee %}
-            <a href="{% url 'task-detail' task.id %}">
                 <div class="task-due">
                     <a href="{% url 'complete_list' task.id %}" class="circle"></a>
                     <div class="row-container">
-                        <p class="title">{{ task.task_name }}</p>
-                        <p class="priority">Priority: {{ task.priority }}</p>
-                        <p class="due">{{ task.deadline }}</p>
+                        <a href="{% url 'task-detail' task.id %}" class="detail-link">
+                            <p class="title">{{ task.task_name }}</p>
+                            <p class="priority">Priority: {{ task.priority }}</p>
+                            <p class="due">{{ task.deadline }}</p>
+                        </a>
                     </div>
                 </div>
-            </a>
             {% endif %}
         {% endfor %}
     </div>
@@ -53,17 +53,17 @@
         <h3>Working</h3>
         {% for task in progress_tasks %}
             {% if user == task.assignee %}
-            <a href="{% url 'task-detail' task.id %}">
                 <div class="task-due">
                     <a href="{% url 'complete_list' task.id %}" class="circle"></a>
                     <div class="row-container">
-                        <p class="title">{{ task.task_name }}</p>
-                        <p class="priority">Priority: {{ task.priority }}</p>
-                        <p class="due">{{ task.deadline }}</p>
+                        <a href="{% url 'task-detail' task.id %}" class="detail-link">
+                            <a href="{% url 'task-detail' task.id %}" class="detail-link">
+                                <p class="title">{{ task.task_name }}</p>
+                                <p class="priority">Priority: {{ task.priority }}</p>
+                                <p class="due">{{ task.deadline }}</p>
+                            </a>
                     </div>
                 </div>
-            </a>
-            
             {% endif %}
         {% endfor %}
     </div>
@@ -72,17 +72,16 @@
         <h3>Complete</h3>
         {% for task in complete_tasks %}
             {% if user == task.assignee %}
-            <a href="{% url 'task-detail' task.id %}">
                 <div class="task-complete">
                     <i class="fa-regular fa-circle-check fa-2xl"></i>
                     <div class="row-container">
-                        <p class="title">{{ task.task_name }}</p>
-                        <p class="priority">Priority: {{ task.priority }}</p>
-                        <p class="due">{{ task.deadline }}</p>
+                        <a href="{% url 'task-detail' task.id %}" class="detail-link">
+                            <p class="title">{{ task.task_name }}</p>
+                            <p class="priority">Priority: {{ task.priority }}</p>
+                            <p class="due">{{ task.deadline }}</p>
+                        </a>
                     </div>
                 </div>
-            </a>
-            
             {% endif %}
         {% endfor %}        
     </div>

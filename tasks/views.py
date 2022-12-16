@@ -7,7 +7,6 @@ from .forms import TaskForm, TaskCommentForm
 from django.views.generic.edit import FormMixin
 from django.urls import reverse
 from django.shortcuts import redirect
-from django.http import HttpResponseRedirect
 
 class TaskDetailView(FormMixin, UserPassesTestMixin, DetailView):
     template_name = "tasks/task-detail.html"
@@ -49,6 +48,9 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self,form):
         form.instance.author = self.request.user
+
+        if not self.request.user.is_superuser:
+            form.instance.assignee = self.request.user
         return super().form_valid(form)
 
 class TaskUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):

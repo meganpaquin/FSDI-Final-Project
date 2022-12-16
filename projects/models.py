@@ -26,7 +26,7 @@ class Project(models.Model):
         Status,
         on_delete=models.CASCADE,
         blank = True,
-        null = True
+        null = True,
     )
     members = models.ManyToManyField(CustomUser)
 
@@ -45,7 +45,7 @@ class Comment(models.Model):
         on_delete=models.CASCADE,
         related_name="comment_author"
     )
-    comment = models.TextField()
+    comment = models.CharField(max_length=300, default="Type your comment here...")
     project = models.ForeignKey(
         Project,
         on_delete=models.CASCADE,
