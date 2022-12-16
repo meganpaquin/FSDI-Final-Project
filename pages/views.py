@@ -1,5 +1,5 @@
 from django.views.generic import TemplateView
-from tasks.models import Task, Status
+from tasks.models import Task, Status, Priority
 from projects.models import Project
 from datetime import datetime
 from django.db.models import Q
@@ -23,6 +23,7 @@ class HomePageView(TemplateView):
         context['progress_tasks'] = Task.objects.filter(status=progress).order_by('deadline').reverse()[0:3]
 
         context['projects'] = Project.objects.order_by('deadline')
+        context['project_members'] = Project.objects.filter(members=loggedin.id)
 
         context['images'] = CustomUser.objects.all()
 
@@ -46,7 +47,7 @@ class ListPageView(TemplateView):
         context = super().get_context_data(**kwargs)
 
         assigned = Status.objects.get(name="assigned")
-        context['assigned_tasks'] = Task.objects.filter(status=assigned).order_by('deadline').reverse().filter(deadline__gt=datetime.today())
+        context['assigned_tasks'] = Task.objects.filter(status=assigned).order_by('deadline').reverse().filter(deadline__gt=datetime.today()).order_by('priority')
 
         progress = Status.objects.get(name="in-progress")
         context['progress_tasks'] = Task.objects.filter(status=progress).order_by('deadline').reverse().filter(deadline__gt=datetime.today())

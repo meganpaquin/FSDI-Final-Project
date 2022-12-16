@@ -8,6 +8,7 @@ from django.views.generic.edit import FormMixin
 from django.urls import reverse
 from bootstrap_modal_forms.generic import BSModalDeleteView
 from django.shortcuts import redirect
+from tasks.models import Task, Status
 
 class ProjectListView(LoginRequiredMixin, ListView):
     template_name = "projects/projects.html"
@@ -26,6 +27,13 @@ class ProjectDetailView(FormMixin, DetailView):
         context['comments'] = Comment.objects.all().order_by('created_on').reverse()
 
         context['form'] = CommentForm(initial={'project': self.object})
+
+        progress = Status.objects.get(name="in-progress")
+        assigned = Status.objects.get(name="assigned")
+        project = Project.objects.get(id=self.kwargs['pk'])
+
+        context['tasks_progress'] = Task.objects.filter(status=progress).filter(project=project).order_by('priority')
+        context['tasks_assigned'] = Task.objects.filter(status=assigned).filter(project=project).order_by('priority')
         return context
 
     def post(self, request, *args, **kwargs):

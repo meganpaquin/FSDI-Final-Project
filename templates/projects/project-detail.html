@@ -48,17 +48,19 @@
                 </div>
             </div>
 
-            <div class="status">
-                <h4>STATUS</h4>
-                {% if project.status == 'assigned' %}
-                    <a href="{% url 'progress_detail' project.id %}"><button>{{ project.status }}</button></a>
-                {% elif project.status == 'in-progress' %}
-                    <a href="{% url 'complete_detail' project.id %}"><button>{{ project.status }}</button></a>
-                {% elif project.status == 'complete' %}
-                    <a href="{% url 'archived_detail' project.id %}"><button>{{ project.status }}</button></a>
-                {% else %}
-                    <a href=""><button>Error</button></a>
-                {% endif %}
+            <div class="project-tasks">
+                <h4>TASKS</h4>
+                <div class="all-tasks">
+                {% for task in tasks_progress %}
+                <div class="individual-task">
+                    <h3><a href="{% url 'task-detail' task.id%}">{{ task.task_name  | truncatechars:75  }}</a></h3>
+                    <h3>Assigned: {{ task.assignee }}</h3>
+                    <h3 class="priority">{{ task.status }}</h3>
+                    <h3 class="priority">{{ task.priority }}</h3>
+                    <h3 class="task-due">{{ task.deadline}}</h3>
+                </div>
+                {% endfor %}
+                </div>
             </div>   
         </div>
         <div class="right-section">

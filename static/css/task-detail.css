@@ -350,3 +350,48 @@ p{
 .task-name h3:hover{
     overflow: visible;
 }
+
+.project-tasks{
+    overflow: scroll;
+    scroll-behavior: auto;
+    height: 22vh;
+}
+
+.all-tasks{
+    margin-top: 30px;
+}
+.individual-task{
+    display: flex;
+    flex-direction: row;
+    width: 92%;
+    height: 70px;
+    border: 1px solid black;
+    margin: 5px 2%;
+    align-items: center;
+    padding-right: 20px;
+    padding: 10px;
+    justify-content: space-evenly;
+}
+
+.circle{
+    width: 50px;
+    height: 50px;
+    background-color: #FFF ;
+    border: 1px solid black;
+    border-radius: 50%;
+    margin: auto 10px;
+}
+
+.individual-task h3{
+    font-size: 18px;
+    padding: 0 20px;
+    
+}
+
+.task-due{
+    text-align: right;
+}
+
+.priority{
+    width: 60px
+}

@@ -2,9 +2,8 @@ Bugs:
     Status For-Loop not working for task or project
 
 Functionality Additions:
-    Project Members also see projects
-    Sort by priority in list view
     Project List View
+    See the tasks assigned to each project in the project view
 
 Security Issues:
     None

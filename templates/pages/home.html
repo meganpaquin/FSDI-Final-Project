@@ -84,15 +84,7 @@
                 
 
                 {% for project in projects %}
-                    {% if user == project.assignee %}
-                    <div class="individual-project">
-                        <span class="square"></span>
-                        <div class="details">
-                            <h4><a href="{% url 'project-detail' project.id%}">{{ project.title | truncatechars:30 }}</a></h4>
-                            <h5>{{ project.author.first_name }} / {{ project.status }}</h5>
-                        </div>
-                    </div>
-                    {% elif user == project.author %}
+                    {% if user == project.author %}
                     <div class="individual-project">
                         <span class="square"></span>
                         <div class="details">
@@ -101,6 +93,16 @@
                         </div>
                     </div>
                     {% endif %}
+                {% endfor %}
+
+                {% for project in project_members.all %}
+                    <div class="individual-project">
+                        <span class="square"></span>
+                        <div class="details">
+                            <h4><a href="{% url 'project-detail' project.id%}">{{ project.title |truncatechars:30 }}</a></h4>
+                            <h5>{{ project.author.first_name }} / {{ project.status }}</h5>
+                        </div>
+                    </div>
                 {% endfor %}
             </div>
         </div>
