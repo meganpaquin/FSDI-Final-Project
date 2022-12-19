@@ -27,7 +27,8 @@
             <h3>PROJECT: {{ task.project | truncatechars:20 }}</h3>
         </div>
         <div class="deadline">
-            <h3>{{ task.deadline }}</h3>
+            <h3>{{ task.deadline_date }},</h3>
+            <h3>{{ task.deadline_time }}</h3>
         </div>
     </div>
 
@@ -46,14 +47,14 @@
             <div class="status">
                 <h4>STATUS</h4>
 
-                {% if task.status == 'assigned' %}
+                {% if task.status|stringformat:"s" == "assigned" %}
                     <a href="{% url 'progress_detail' task.id %}"><button>{{ task.status }}</button></a>
-                {% elif task.status == 'in-progress' %}
+                {% elif task.status|stringformat:"s" == "in-progress" %}
                     <a href="{% url 'complete_detail' task.id %}"><button>{{ task.status }}</button></a>
-                {% elif task.status == 'complete' %}
+                {% elif task.status|stringformat:"s" == "complete" %}
                     <a href="{% url 'archived_detail' task.id %}"><button>{{ task.status }}</button></a>
                 {% else %}
-                    <a href=""><button>Error</button></a>
+                    <a href=""><button>Error {{ task.status }}</button></a>
                 {% endif %}
             </div>   
         </div>
@@ -64,7 +65,7 @@
                     {% for comment in comments %}
                         {% if task.task_name == comment.task.task_name %}
                         <div class="comment-bubble">
-                        <div class="circle" style="background-color: {{comment.author.color}};">{{ comment.author.first_name | slice:1 }}{{ comment.author.last_name | slice:1}}</div>
+                        <div class="circle-little" style="background-color: {{comment.author.color}};">{{ comment.author.first_name | slice:1 }}{{ comment.author.last_name | slice:1}}</div>
                         <span>{{ comment }}</span>
                         </div>
                         {% endif %}
@@ -83,7 +84,7 @@
             <div class="assignee">
                 <h4>ASSIGNEE</h4>
                 <div class="user-bubble">
-                    <div class="circle" style="background-color: {{comment.author.color}};">{{ task.assignee.first_name | slice:1 }}{{ task.assignee.last_name | slice:1}}</div>
+                    <div class="circle" style="background-color: {{ task.assignee.color }};">{{ task.assignee.first_name | slice:1 }}{{ task.assignee.last_name | slice:1}}</div>
                     <span>{{ task.assignee }}</span>
                 </div>
             </div>

@@ -1,9 +1,8 @@
 Bugs:
-    Status For-Loop not working for task or project
+    None
 
 Functionality Additions:
-    Project List View
-    See the tasks assigned to each project in the project view
+    None
 
 Security Issues:
     None

@@ -45,7 +45,7 @@ class Comment(models.Model):
         on_delete=models.CASCADE,
         related_name="comment_author"
     )
-    comment = models.CharField(max_length=300, default="Type your comment here...")
+    comment = models.CharField(max_length=300)
     project = models.ForeignKey(
         Project,
         on_delete=models.CASCADE,

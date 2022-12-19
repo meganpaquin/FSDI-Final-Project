@@ -30,10 +30,12 @@ class ProjectDetailView(FormMixin, DetailView):
 
         progress = Status.objects.get(name="in-progress")
         assigned = Status.objects.get(name="assigned")
+        completed = Status.objects.get(name="complete")
         project = Project.objects.get(id=self.kwargs['pk'])
 
         context['tasks_progress'] = Task.objects.filter(status=progress).filter(project=project).order_by('priority')
         context['tasks_assigned'] = Task.objects.filter(status=assigned).filter(project=project).order_by('priority')
+        context['completed'] = Task.objects.filter(status=completed).filter(project=project).order_by('priority')
         return context
 
     def post(self, request, *args, **kwargs):

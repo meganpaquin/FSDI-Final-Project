@@ -3,7 +3,9 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 from projects.models import Project
-from accounts.models import CustomUser
+from datetime import date
+import datetime
+from django.utils.translation import gettext_lazy as _
 
 
 class Priority(models.Model):
@@ -25,7 +27,10 @@ class Task(models.Model):
     task_summary = models.TextField()
     task_details = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    deadline = models.DateTimeField()
+
+    deadline_date = models.DateField(_("Date"), default=date.today)
+    deadline_time = models.TimeField(default=datetime.datetime.now().strftime('%H:%M'))
+
     assignee = models.ForeignKey(
         get_user_model(),
         on_delete=models.CASCADE,
@@ -69,7 +74,7 @@ class Comment(models.Model):
         on_delete=models.CASCADE,
         related_name="comment_task_author"
     )
-    comment = models.CharField(max_length=300, default="Type your comment here...")
+    comment = models.CharField(max_length=300)
     task = models.ForeignKey(
         Task,
         on_delete=models.CASCADE,

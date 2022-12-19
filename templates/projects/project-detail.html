@@ -23,7 +23,7 @@
         </div>
         
         <div class="deadline">
-            <h3>{{ project.deadline }}</h3>
+            <h3>{{ project.deadline.date }}</h3>
         </div>
     </div>
 
@@ -53,11 +53,31 @@
                 <div class="all-tasks">
                 {% for task in tasks_progress %}
                 <div class="individual-task">
-                    <h3><a href="{% url 'task-detail' task.id%}">{{ task.task_name  | truncatechars:75  }}</a></h3>
-                    <h3>Assigned: {{ task.assignee }}</h3>
-                    <h3 class="priority">{{ task.status }}</h3>
-                    <h3 class="priority">{{ task.priority }}</h3>
-                    <h3 class="task-due">{{ task.deadline}}</h3>
+                    <h3 id="name"><a href="{% url 'task-detail' task.id%}">{{ task.task_name  | truncatechars:50  }}</a></h3>
+                    <h3 id="assignment">Assigned: {{ task.assignee }}</h3>
+                    <h3 class="priority">Status: {{ task.status }}</h3>
+                    <h3 class="priority">Priority: {{ task.priority }}</h3>
+                    <h3 class="task-due">Due: {{ task.deadline_date }}</h3>
+                </div>
+                {% endfor %}
+
+                {% for task in tasks_assigned %}
+                <div class="individual-task">
+                    <h3 id="name"><a href="{% url 'task-detail' task.id%}">{{ task.task_name  | truncatechars:50  }}</a></h3>
+                    <h3 id="assignment">Assigned: {{ task.assignee }}</h3>
+                    <h3 class="priority">Status: {{ task.status }}</h3>
+                    <h3 class="priority">Priority: {{ task.priority }}</h3>
+                    <h3 class="task-due">Due: {{ task.deadline_date }}</h3>
+                </div>
+                {% endfor %}
+
+                {% for task in completed %}
+                <div class="individual-task">
+                    <h3 id="name"><a href="{% url 'task-detail' task.id%}">{{ task.task_name  | truncatechars:50  }}</a></h3>
+                    <h3 id="assignment">Assigned: {{ task.assignee }}</h3>
+                    <h3 class="priority">Status: {{ task.status }}</h3>
+                    <h3 class="priority">Priority: {{ task.priority }}</h3>
+                    <h3 class="task-due">Due: {{ task.deadline_date }}</h3>
                 </div>
                 {% endfor %}
                 </div>
@@ -70,7 +90,7 @@
                     {% for comment in comments %}
                         {% if project.title == comment.project.title %}
                         <div class="comment-bubble">
-                        <div class="circle" style="background-color: {{comment.author.color}};">{{ comment.author.first_name | slice:1 }}{{ comment.author.last_name | slice:1}}</div>
+                        <div class="circle-little" style="background-color: {{comment.author.color}};">{{ comment.author.first_name | slice:1 }}{{ comment.author.last_name | slice:1}}</div>
                         <span>{{ comment }}</span>
                         </div>
                         {% endif %}

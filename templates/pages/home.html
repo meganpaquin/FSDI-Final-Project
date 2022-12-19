@@ -45,25 +45,21 @@
 
 
             {% for task in assigned_tasks %}
-                {% if user == task.assignee %}
                 <div class="individual-task">
                     <a href="{% url 'mark_completed' task.id %}" class="circle"></a>
                     <h4><strong><a href="{% url 'task-detail' task.id %}">{{ task.task_name | truncatechars:75 }}</a></strong></h4>
                     <h4>Project: {{ task.project | truncatechars:50 }}</h4>
-                    <h4 class="task-due">{{ task.deadline}}</h4>
+                    <h4 class="task-due">{{ task.deadline_date}}, {{ task.deadline_time}}</h4>
                 </div>
-                {% endif %}
             {% endfor %}
 
             {% for task in progress_tasks %}
-                {% if user == task.assignee %}
                 <div class="individual-task">
                     <a href="{% url 'mark_completed' task.id %}" class="circle"></a>
                     <h4><strong><a href="{% url 'task-detail' task.id%}">{{ task.task_name  | truncatechars:75  }}</a></strong></h4>
                     <h4>Project: {{ task.project | truncatechars:50 }}</h4>
-                    <h4 class="task-due">{{ task.deadline}}</h4>
+                    <h4 class="task-due">{{ task.deadline_date}}, {{ task.deadline_time}}</h4>
                 </div>
-                {% endif %}
             {% endfor %}
 
         </div>
@@ -96,6 +92,7 @@
                 {% endfor %}
 
                 {% for project in project_members.all %}
+                {% if user != project.author %}
                     <div class="individual-project">
                         <span class="square"></span>
                         <div class="details">
@@ -103,6 +100,7 @@
                             <h5>{{ project.author.first_name }} / {{ project.status }}</h5>
                         </div>
                     </div>
+                {% endif %}
                 {% endfor %}
             </div>
         </div>
